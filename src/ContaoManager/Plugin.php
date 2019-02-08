@@ -27,7 +27,7 @@ class Plugin implements BundlePluginInterface
         return [
             BundleConfig::create(ContaoImmoManagerGooglemapsBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class])
-                ->setReplace(['immo-manager-watchlist']),
+                ->setReplace(['immo-manager-googlemaps']),
         ];
     }
 }
