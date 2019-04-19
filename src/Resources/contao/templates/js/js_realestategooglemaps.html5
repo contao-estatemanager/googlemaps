@@ -1,0 +1,9 @@
+<?php
+    /** Google sources */
+    $GLOBALS['TL_JAVASCRIPT'][] = 'https://maps.googleapis.com/maps/api/js?key=' . \Config::get('googleMapsApiToken') . '&callback=onGoogleMapsApiReady|async';
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/contaoimmomanagergooglemaps/google/markerclusterer.1.0.1.js';
+
+    /** Oveleon Google-Maps-Viewer */
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/contaoimmomanagergooglemaps/google-maps-viewer/google-maps-viewer.js';
+    $GLOBALS['TL_CSS'][]        = 'bundles/contaoimmomanagergooglemaps/google-maps-viewer/google-maps-viewer.css|static';
+?>

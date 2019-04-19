@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+  <file datatype="php" original="src/Resources/contao/languages/en/modules.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="FMD.googleMap.0">
+        <source>Google-Map</source>
+        <target>Google-Map</target>
+      </trans-unit>
+      <trans-unit id="FMD.googleMap.1">
+        <source>Zeigt eine Google-Map mit Standort der Immobilie an</source>
+        <target>Zeigt eine Google-Map mit Standort der Immobilie an</target>
+      </trans-unit>
+      <trans-unit id="FMD.realEstateGoogleMap.0">
+        <source>Immobilien-Karte (Google)</source>
+        <target>Immobilien-Karte (Google)</target>
+      </trans-unit>
+      <trans-unit id="FMD.realEstateGoogleMap.1">
+        <source>Erzeugt ein auf Google basierende Kartendarstellung mit Immobilien</source>
+        <target>Erzeugt ein auf Google basierende Kartendarstellung mit Immobilien</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

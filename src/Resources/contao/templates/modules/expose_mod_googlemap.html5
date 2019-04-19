@@ -1,0 +1,13 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<div id="<?=$this->mapId?>" class="google-map"></div>
+<script>
+    document.addEventListener('googlemaps.onApiReady', function(){
+        var <?=$this->mapId?> = new GoogleMapsViewer("<?=$this->mapId?>", <?=$this->config?>);
+        <?=$this->mapId?>.addMarker([<?=$this->lat?>, <?=$this->lng?>], <?=$this->marker?>);
+    });
+</script>
+
+<?php $this->endblock(); ?>

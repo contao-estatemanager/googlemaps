@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<xliff version="1.1">
+  <file datatype="php" original="src/Resources/contao/languages/en/tl_module.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_module.google_maps_legend">
+        <source>Google-Map Einstellungen</source>
+        <target>Google-Map Einstellungen</target>
+      </trans-unit>
+
+      <trans-unit id="tl_module.googleInitialLat.0">
+        <source>Latitude</source>
+        <target>Breitengrad</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleInitialLat.1">
+        <source>Visible area after loading the map</source>
+        <target>Definiert den initialien Bereich nachdem die Karte geladen wurde</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleInitialLng.0">
+        <source>Longitude</source>
+        <target>Längengrad</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleInitialLng.1">
+        <source>Visible area after loading the map</source>
+        <target>Definiert den initialien Bereich nachdem die Karte geladen wurde</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleInitialZoom.0">
+        <source>Zoomfactor</source>
+        <target>Zoomstufe</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleInitialZoom.1">
+        <source></source>
+        <target>Definiert die initiale Zoomstufe. Bei der Verwendung von 'googleUseBounce' wird dieser Wert ignoriert.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleMinZoom.0">
+        <source>min. Zoomfactor</source>
+        <target>min. Zoomstufe</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleMinZoom.1">
+        <source></source>
+        <target>Definiert die minimale Zoomstufe, welcher der Benutzer über scrollen oder +/- erreichen kann</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleMaxZoom.0">
+        <source>max. Zoomfactor</source>
+        <target>max. Zoomstufe</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleMaxZoom.1">
+        <source></source>
+        <target>Definiert die maximale Zoomstufe, welcher der Benutzer über scrollen oder +/- erreichen kann</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleType.0">
+        <source>Type</source>
+        <target>Kartendarstellung</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleType.1">
+        <source></source>
+        <target>Definiert die Standard-Darstellung der Karte</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleGestureHandling.0">
+        <source>Gesture Handling</source>
+        <target>Verhalten</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleGestureHandling.1">
+        <source></source>
+        <target>Definiert das Verhalten der Interaktion mit der Karte</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleUseCluster.0">
+        <source>Use Clustering</source>
+        <target>Marker zusammenfassen</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleUseCluster.1">
+        <source></source>
+        <target>Fasst nah aneinander liegende Marker zusammen. Das Aussehen kann über die Einstellungen der Immobilien-Verwaltung definiert werden.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleUseBounce.0">
+        <source>Use Bounce</source>
+        <target>Sichtbaren Bereich an Marker orientieren</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleUseBounce.1">
+        <source></source>
+        <target>Verändert den sichtbaren Bereich der Karte (Zoom, Längen- und Breitengrad) um alle auf der Karte befindlichen Marker direkt darzustellen</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleInteractive.0">
+        <source>Allow interaction</source>
+        <target>Interaktion erlauben</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleInteractive.1">
+        <source></source>
+        <target>Erlaubt das bewegen mit gedrückter Maustaste, sowie einen Doppelklick zum zoomen</target>
+      </trans-unit>
+
+      <trans-unit id="tl_module.googleControls.0">
+        <source>Controls</source>
+        <target>Zoom</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleControls.1">
+        <source></source>
+        <target>Anzeigen der Zoom-Schaltflächen (+/-)</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleFullscreen.0">
+        <source>Allow Fullscreen</source>
+        <target>Vollbildmodus</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleFullscreen.1">
+        <source></source>
+        <target>Anzeigen einer Vollbild-Schaltfläche</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleStreetview.0">
+        <source>Streetview</source>
+        <target>Streetview</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleStreetview.1">
+        <source></source>
+        <target>Anzeigen einer Schaltfläche für den Streetview-Modus</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleMapTypeControl.0">
+        <source>MapType Control</source>
+        <target>Kartendarstellung anpassen</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleMapTypeControl.1">
+        <source></source>
+        <target>Anzeigen der verfügbaren Kartendarstellung. Ermöglicht dem Benutzer die Darstellung der Karte selbst zu wählen.</target>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>
