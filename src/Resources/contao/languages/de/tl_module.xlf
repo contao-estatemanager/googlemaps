@@ -121,6 +121,15 @@
         <target>Anzeigen der verfügbaren Kartendarstellung. Ermöglicht dem Benutzer die Darstellung der Karte selbst zu wählen.</target>
       </trans-unit>
 
+      <trans-unit id="tl_module.googleMapPopupTemplate.0">
+        <source>Google-Maps Popup-Template</source>
+        <target>Google-Maps Popup-Template</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleMapPopupTemplate.1">
+        <source></source>
+        <target>Hier können Sie das Standard-Template überschreiben.</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>
