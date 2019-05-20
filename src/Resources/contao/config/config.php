@@ -7,17 +7,22 @@
  * @license   https://github.com/oveleon/contao-immo-manager-bundle/blob/master/LICENSE
  */
 
-// Front end modules
-array_insert($GLOBALS['FE_MOD'], 0, array
-(
-    'immomanager' => array
-    (
-        'realEstateGoogleMap'     => '\\Oveleon\\ContaoImmoManagerGooglemapsBundle\\ModuleRealEstateGoogleMap'
-    )
-));
+// IMMOMANAGER
+$GLOBALS['TL_IMMOMANAGER_ADDONS'][] = array('Oveleon\\ContaoImmoManagerGooglemapsBundle', 'AddonManager');
 
-// Add expose module
-array_insert($GLOBALS['FE_EXPOSE_MOD']['media'], -1, array
-(
-    'googleMap' => '\\Oveleon\\ContaoImmoManagerGooglemapsBundle\\ExposeModuleGoogleMap',
-));
+if(Oveleon\ContaoImmoManagerGooglemapsBundle\AddonManager::valid()) {
+    // Front end modules
+    array_insert($GLOBALS['FE_MOD'], 0, array
+    (
+        'immomanager' => array
+        (
+            'realEstateGoogleMap' => '\\Oveleon\\ContaoImmoManagerGooglemapsBundle\\ModuleRealEstateGoogleMap'
+        )
+    ));
+
+    // Add expose module
+    array_insert($GLOBALS['FE_EXPOSE_MOD']['media'], -1, array
+    (
+        'googleMap' => '\\Oveleon\\ContaoImmoManagerGooglemapsBundle\\ExposeModuleGoogleMap',
+    ));
+}
