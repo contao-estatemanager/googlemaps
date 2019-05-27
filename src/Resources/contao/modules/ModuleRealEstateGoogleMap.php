@@ -1,15 +1,16 @@
 <?php
 /**
- * This file is part of Oveleon ImmoManager.
+ * This file is part of Contao EstateManager.
  *
- * @link      https://github.com/oveleon/contao-immo-manager-bundle
- * @copyright Copyright (c) 2018-2019  Oveleon GbR (https://www.oveleon.de)
- * @license   https://github.com/oveleon/contao-immo-manager-bundle/blob/master/LICENSE
+ * @link      https://www.contao-estatemanager.com/
+ * @source    https://github.com/contao-estatemanager/googlemaps
+ * @copyright Copyright (c) 2019  Oveleon GbR (https://www.oveleon.de)
+ * @license   https://www.contao-estatemanager.com/lizenzbedingungen.html
  */
 
-namespace Oveleon\ContaoImmoManagerGooglemapsBundle;
+namespace ContaoEstateManager\GoogleMaps;
 
-use Oveleon\ContaoImmoManagerBundle\ModuleRealEstate;
+use ContaoEstateManager\ModuleRealEstate;
 use Patchwork\Utf8;
 
 /**
@@ -88,7 +89,7 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
         $mapConfig = [
             'mapId'  => $mapId,
             'source' => [
-                'path'         => '/api/immomanager/v1/estates',
+                'path'         => '/api/estatemanager/v1/estates',
                 'param'        => [
                     'dataType'     => 'geojson',
                     'filterMode'   => $this->filterMode,

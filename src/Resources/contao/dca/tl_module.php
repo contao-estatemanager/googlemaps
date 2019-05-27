@@ -1,19 +1,19 @@
 <?php
 /**
- * This file is part of Oveleon ImmoManager.
+ * This file is part of Contao EstateManager.
  *
- * @link      https://github.com/oveleon/contao-immo-manager-bundle
- * @copyright Copyright (c) 2018-2019  Oveleon GbR (https://www.oveleon.de)
- * @license   https://github.com/oveleon/contao-immo-manager-bundle/blob/master/LICENSE
+ * @link      https://www.contao-estatemanager.com/
+ * @source    https://github.com/contao-estatemanager/googlemaps
+ * @copyright Copyright (c) 2019  Oveleon GbR (https://www.oveleon.de)
+ * @license   https://www.contao-estatemanager.com/lizenzbedingungen.html
  */
-
-if(Oveleon\ContaoImmoManagerGooglemapsBundle\AddonManager::valid()) {
+if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     array_insert($GLOBALS['TL_DCA']['tl_module']['palettes'], 0, array
     (
         'realEstateGoogleMap'      => '{title_legend},name,headline,type;{google_maps_legend},googleInitialLat,googleInitialLng,googleInitialZoom,googleMinZoom,googleMaxZoom,googleType,googleGestureHandling,googleUseCluster,googleUseBounce,googleUseBounds,googleInteractive,googleControls,googleFullscreen,googleStreetview,googleMapTypeControl;{redirect_legend},jumpTo;{filter_legend:hide},filterMode;{template_legend:hide},customTpl,googleMapPopupTemplate;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID',
     ));
 
-    // Add immo manager fields
+    // Add estate manager fields
     array_insert($GLOBALS['TL_DCA']['tl_module']['fields'], 1, array
     (
         'googleInitialLat' => array
@@ -156,7 +156,7 @@ if(Oveleon\ContaoImmoManagerGooglemapsBundle\AddonManager::valid()) {
             'default'                 => 'real_estate_default',
             'exclude'                 => true,
             'inputType'               => 'select',
-            'options_callback'        => array('tl_module_immo_manager_google_map', 'getGoogleMapPopupTemplates'),
+            'options_callback'        => array('tl_module_estatemanager_google_map', 'getGoogleMapPopupTemplates'),
             'eval'                    => array('tl_class'=>'w50'),
             'sql'                     => "varchar(64) NOT NULL default ''"
         )
@@ -169,7 +169,7 @@ if(Oveleon\ContaoImmoManagerGooglemapsBundle\AddonManager::valid()) {
  * @author Daniele Sciannimanica <daniele@oveleon.de>
  * @author Fabian Ekert <fabian@oveleon.de>
  */
-class tl_module_immo_manager_google_map extends Backend
+class tl_module_estatemanager_google_map extends Backend
 {
 
     /**

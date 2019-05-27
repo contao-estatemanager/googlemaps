@@ -1,13 +1,13 @@
 <?php
 /**
- * This file is part of Oveleon ImmoManager.
+ * This file is part of Contao EstateManager.
  *
- * @link      https://github.com/oveleon/contao-immo-manager-bundle
- * @copyright Copyright (c) 2018-2019  Oveleon GbR (https://www.oveleon.de)
- * @license   https://github.com/oveleon/contao-immo-manager-bundle/blob/master/LICENSE
+ * @link      https://www.contao-estatemanager.com/
+ * @source    https://github.com/contao-estatemanager/googlemaps
+ * @copyright Copyright (c) 2019  Oveleon GbR (https://www.oveleon.de)
+ * @license   https://www.contao-estatemanager.com/lizenzbedingungen.html
  */
-
-if(Oveleon\ContaoImmoManagerGooglemapsBundle\AddonManager::valid()) {
+if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     // Add field
     array_insert($GLOBALS['TL_DCA']['tl_expose_module']['palettes'], -1, array
     (
@@ -126,7 +126,7 @@ if(Oveleon\ContaoImmoManagerGooglemapsBundle\AddonManager::valid()) {
  *
  * @author Daniele Sciannimanica <daniele@oveleon.de>
  */
-class tl_expose_module_immo_manager_googlemaps extends \Backend
+class tl_expose_module_estate_manager_googlemaps extends \Backend
 {
 
     /**
