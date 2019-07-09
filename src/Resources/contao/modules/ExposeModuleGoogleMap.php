@@ -82,6 +82,7 @@ class ExposeModuleGoogleMap extends ExposeModule
             'initInstant' => true,
             'map' => [
                 'style'          => $this->googleStyle,
+                'styles'         => GoogleMaps::getMapStyles(),
                 'lat'            => $estateLat,
                 'lng'            => $estateLng,
                 'zoom'           => $this->googleInitialZoom,
