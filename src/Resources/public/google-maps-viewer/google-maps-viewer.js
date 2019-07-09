@@ -1,8 +1,9 @@
 /**
- * Oveleon Google Maps Viewer
+ * Google Maps Viewer
  *
- * @author Oveleon <https://www.oveleon.de>
+ * @author Daniele Sciannimanica <https://github.com/doishub>
  * @version 0.0.3
+ * @licence https://github.com/doishub/google-maps-viewer/blob/master/LICENSE
  */
 var GoogleMapsViewer = (function () {
 
@@ -26,7 +27,6 @@ var GoogleMapsViewer = (function () {
                 clustering: false,
                 clusterSteps: null,
                 styles: null,
-
                 clusterMaxZoom: 14,
                 clusterRadius: 50
             },
