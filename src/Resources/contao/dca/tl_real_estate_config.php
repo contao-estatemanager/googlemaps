@@ -24,6 +24,24 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
             'inputType'               => 'fileTree',
             'eval'                    => array('fieldType'=>'radio', 'filesOnly'=>true, 'isGallery'=>true, 'extensions'=>Config::get('validImageTypes'), 'tl_class'=>'clr w50'),
         ),
+        'googleMapUseClusterStyles'  => array
+        (
+            'label'                     => &$GLOBALS['TL_LANG']['tl_real_estate_config']['googleMapUseClusterStyles'],
+            'inputType'                 => 'checkbox',
+            'eval'                      => array('tl_class' => 'w50 m12 clr', 'submitOnChange'=>true),
+        ),
+        'googleMapUseMapStyles'  => array
+        (
+            'label'                     => &$GLOBALS['TL_LANG']['tl_real_estate_config']['googleMapUseMapStyles'],
+            'inputType'                 => 'checkbox',
+            'eval'                      => array('tl_class' => 'w50 m12 clr', 'submitOnChange'=>true),
+        ),
+        'googleMapStylesScript' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_real_estate_config']['googleMapStylesScript'],
+            'inputType'               => 'textarea',
+            'eval'                    => array('style'=>'height:120px', 'rte'=>'ace|js', 'tl_class'=>'clr'),
+        ),
         'googleMapClusterStyles' => array
         (
             'label'     => &$GLOBALS['TL_LANG']['tl_real_estate_config']['googleMapClusterStyles'],
@@ -74,9 +92,15 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     ));
 
     // Extend the default palettes
+    $GLOBALS['TL_DCA']['tl_real_estate_config']['palettes']['__selector__'][] = 'googleMapUseClusterStyles';
+    $GLOBALS['TL_DCA']['tl_real_estate_config']['palettes']['__selector__'][] = 'googleMapUseMapStyles';
+
+    $GLOBALS['TL_DCA']['tl_real_estate_config']['subpalettes']['googleMapUseClusterStyles'] = 'googleMapClusterStyles';
+    $GLOBALS['TL_DCA']['tl_real_estate_config']['subpalettes']['googleMapUseMapStyles'] = 'googleMapStylesScript';
+
     Contao\CoreBundle\DataContainer\PaletteManipulator::create()
         ->addLegend('google_maps_legend', 'template_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_BEFORE)
-        ->addField(array('googleMapsApiToken', 'googleMapsDefaultMarkerSRC', 'googleMapsDefaultClusterSRC', 'googleMapClusterStyles'), 'google_maps_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+        ->addField(array('googleMapsApiToken', 'googleMapsDefaultMarkerSRC', 'googleMapsDefaultClusterSRC', 'googleMapUseClusterStyles', 'googleMapUseMapStyles'), 'google_maps_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
         ->applyToPalette('default', 'tl_real_estate_config')
     ;
 }

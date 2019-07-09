@@ -117,6 +117,7 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
             ],
             'map' => [
                 'style'          => $this->googleStyle,
+                'styles'         => GoogleMaps::getMapStyles(),
                 'lat'            => $this->googleInitialLat,
                 'lng'            => $this->googleInitialLng,
                 'zoom'           => $this->googleInitialZoom,

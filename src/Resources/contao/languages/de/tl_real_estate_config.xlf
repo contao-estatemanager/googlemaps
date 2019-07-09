@@ -38,6 +38,30 @@
         <source>Richten Sie bis zu 5 unterschiedliche Cluster-Icons ein. Textversatz gibt die X- und Y-Position des Cluster-Inhalts an - Bei der Angabe von '0' wird der Inhalt auf der entsprechenden Achse zentriert dargestellt.</source>
         <target>Richten Sie bis zu 5 unterschiedliche Cluster-Icons ein. Textversatz gibt die X- und Y-Position des Cluster-Inhalts an - Bei der Angabe von '0' wird der Inhalt auf der entsprechenden Achse zentriert dargestellt.</target>
       </trans-unit>
+      <trans-unit id="tl_real_estate_config.googleMapUseClusterStyles.0">
+        <source>Define Cluster-Styles</source>
+        <target>Eigene Cluster-Styles definieren</target>
+      </trans-unit>
+      <trans-unit id="tl_real_estate_config.googleMapUseClusterStyles.1">
+        <source>Change here the appearance of clustering on Google Maps</source>
+        <target>Verändern Sie hier das Aussehen der Clusterung auf Google-Karten</target>
+      </trans-unit>
+      <trans-unit id="tl_real_estate_config.googleMapUseMapStyles.0">
+        <source>Define Map-Styles</source>
+        <target>Eigene Map-Styles definieren</target>
+      </trans-unit>
+      <trans-unit id="tl_real_estate_config.googleMapUseMapStyles.1">
+        <source>Change the look of the Google map here</source>
+        <target>Verändern Sie hier das Aussehen der Google-Karte</target>
+      </trans-unit>
+      <trans-unit id="tl_real_estate_config.googleMapStylesScript.0">
+        <source>Map-Styles</source>
+        <target>Map-Styles</target>
+      </trans-unit>
+      <trans-unit id="tl_real_estate_config.googleMapStylesScript.1">
+        <source>Enter the new styles in JSON format here</source>
+        <target>Tragen Sie hier die neuen Styles im JSON-Format ein</target>
+      </trans-unit>
       <trans-unit id="tl_real_estate_config.clusterImage">
         <source>Cluster Icon</source>
         <target>Cluster Icon</target>

@@ -49,6 +49,20 @@ class GoogleMaps
 
         return false;
     }
+    /**
+     * Return a style package for map
+     *
+     * @return array|null
+     */
+    public static function getMapStyles()
+    {
+        if(!\Config::get('googleMapUseMapStyles'))
+        {
+            return null;
+        }
+
+        return json_decode( \Config::get('googleMapStylesScript') ) ?: null;
+    }
 
     /**
      * Return a style package for clustered markers
@@ -59,6 +73,11 @@ class GoogleMaps
      */
     public static function getClusterStyles($arrClusterStyles=null)
     {
+        if(!\Config::get('googleMapUseClusterStyles'))
+        {
+           return false;
+        }
+
         if($arrClusterStyles === null)
         {
             $arrClusterStyles = \StringUtil::deserialize( \Config::get('googleMapClusterStyles') );
