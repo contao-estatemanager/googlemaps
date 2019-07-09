@@ -92,8 +92,9 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
                 'path'         => '/api/estatemanager/v1/estates',
                 'param'        => [
                     'dataType'     => 'geojson',
+                    'filter'       => true,
                     'filterMode'   => $this->filterMode,
-                    'pageId'       => $objPage->id,
+                    'groups'       => $this->realEstateGroups,
                     'jumpTo'       => $this->jumpTo,
                     'fields'       => [
                         'objekttitel',

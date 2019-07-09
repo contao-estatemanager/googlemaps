@@ -27,8 +27,8 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create(EstateManagerGoogleMaps::class)
-                ->setLoadAfter([ContaoCoreBundle::class])
-                ->setReplace(['googlemaps']),
+                ->setLoadAfter([ContaoCoreBundle::class, EstateManager::class])
+                ->setReplace(['estatemanager-googlemaps']),
         ];
     }
 }
