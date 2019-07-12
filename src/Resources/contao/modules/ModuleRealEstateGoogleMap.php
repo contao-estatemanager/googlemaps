@@ -88,6 +88,7 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
         // create map configuration
         $mapConfig = [
             'mapId'  => $mapId,
+            'initInstant' => true,
             'source' => [
                 'path'         => '/api/estatemanager/v1/estates',
                 'param'        => [

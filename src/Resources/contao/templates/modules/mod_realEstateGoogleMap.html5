@@ -3,6 +3,10 @@
 <?php $this->block('content'); ?>
 
 <div id="<?=$this->mapId?>" class="google-map"></div>
-<script>var <?=$this->mapId?> = new GoogleMapsViewer("<?=$this->mapId?>", <?=$this->config?>);</script>
+<script>
+    document.addEventListener('googlemaps.onApiReady', function() {
+        var <?=$this->mapId?> = new GoogleMapsViewer("<?=$this->mapId?>", <?=$this->config?>);
+    });
+</script>
 
 <?php $this->endblock(); ?>
