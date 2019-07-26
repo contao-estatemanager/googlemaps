@@ -45,7 +45,7 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
         'googleMinZoom' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_module']['googleMinZoom'],
-            'default'                 => 20,
+            'default'                 => 1,
             'exclude'                 => true,
             'inputType'               => 'select',
             'options'                 => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20),
@@ -55,7 +55,7 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
         'googleMaxZoom' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_module']['googleMaxZoom'],
-            'default'                 => 1,
+            'default'                 => 20,
             'exclude'                 => true,
             'inputType'               => 'select',
             'options'                 => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20),
