@@ -109,11 +109,19 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
             ],
             'spider' => [
                 'spiderfier'   => !!$this->googleUseSpiderfier,
+                'options'      => [
+                    'keepSpiderfied'  => true,
+                    'markersWontMove' => true,
+                    'markersWontHide' => true
+                ]
             ],
             'cluster' => [
                 'clustering'   => $clustering,
                 'clusterSteps' => $clusterSteps,
-                'styles'       => $clusterStyles
+                'styles'       => $clusterStyles,
+                'options'      => [
+                    'maxZoom' => !!$this->googleUseSpiderfier ? $this->googleMaxZoom - 1 : $this->googleMaxZoom,
+                ]
             ],
             'marker' => [
                 'imagePath'    => $markerImagePath,
