@@ -107,6 +107,9 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
                     'template'     => $this->googleMapPopupTemplate ?: '',
                 ]
             ],
+            'spider' => [
+                'spiderfier'   => !!$this->googleUseSpiderfier,
+            ],
             'cluster' => [
                 'clustering'   => $clustering,
                 'clusterSteps' => $clusterSteps,

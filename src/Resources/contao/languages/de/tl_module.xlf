@@ -68,8 +68,16 @@
         <target>Marker zusammenfassen</target>
       </trans-unit>
       <trans-unit id="tl_module.googleUseCluster.1">
-        <source></source>
+        <source>Summarizes closely spaced markers. The appearance can be defined in the Real Estate Management settings.</source>
         <target>Fasst nah aneinander liegende Marker zusammen. Das Aussehen kann über die Einstellungen der Immobilien-Verwaltung definiert werden.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleUseSpiderfier.0">
+        <source>Use Spiderfier</source>
+        <target>Übereinanderliegende Marker auffächern</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleUseSpiderfier.1">
+        <source>Merges markers on top of each other and fans them when clicking on.</source>
+        <target>Fasst übereinander liegende Marker zusammen und fächert diese bei Klick auf.</target>
       </trans-unit>
       <trans-unit id="tl_module.googleUseBounce.0">
         <source>Use Bounce</source>

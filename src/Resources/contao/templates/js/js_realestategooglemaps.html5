@@ -1,9 +1,10 @@
 <?php
-    /** Oveleon Google-Maps-Viewer */
+    /** Google-Maps-Viewer */
     $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/estatemanagergooglemaps/google-maps-viewer/google-maps-viewer.js';
     $GLOBALS['TL_CSS'][]        = 'bundles/estatemanagergooglemaps/google-maps-viewer/google-maps-viewer.css|static';
 
-    /** Google sources */
+    /** Vendor sources */
     $GLOBALS['TL_JAVASCRIPT'][] = 'https://maps.googleapis.com/maps/api/js?key=' . \Config::get('googleMapsApiToken') . '&callback=onGoogleMapsApiReady|async';
-    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/estatemanagergooglemaps/google/markerclusterer.1.0.1.js';
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/estatemanagergooglemaps/google-libraries/markerclusterer.1.0.1.js';
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/estatemanagergooglemaps/google-libraries/oms.min.js';
 ?>
