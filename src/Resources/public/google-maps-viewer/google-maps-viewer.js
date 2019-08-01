@@ -376,7 +376,7 @@ var GoogleMapsViewer = (function () {
 
             // create marker
             var marker = new google.maps.Marker(
-                extend(defaultOptions, viewer.settings.marker.options, markerOptions)
+                extend(defaultOptions, viewer.settings.marker.options, markerOptions || {})
             );
 
             marker.props = markerProps || null;
