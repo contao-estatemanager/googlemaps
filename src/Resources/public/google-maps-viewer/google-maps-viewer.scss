@@ -9,6 +9,15 @@
     overflow-x: hidden !important;
   }
 
+  span.loader{
+    display: block;
+    width: 16px;
+    height: 16px;
+
+    background-image: url('/bundles/estatemanagergooglemaps/loader.gif');
+    background-repeat: no-repeat;
+  }
+
   &.poi-info-window{
     padding: 10px;
   }

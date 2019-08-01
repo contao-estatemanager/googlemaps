@@ -3,6 +3,12 @@
   padding: 0; }
 .gm-style .gm-style-iw-d {
   overflow-x: hidden !important; }
+.gm-style span.loader {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url("/bundles/estatemanagergooglemaps/loader.gif");
+  background-repeat: no-repeat; }
 .gm-style.poi-info-window {
   padding: 10px; }
 
