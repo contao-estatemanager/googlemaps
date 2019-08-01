@@ -95,16 +95,23 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
                     'dataType'     => 'geojson',
                     'filter'       => true,
                     'filterMode'   => $this->filterMode,
-                    'groups'       => $this->realEstateGroups,
-                    'jumpTo'       => $this->jumpTo,
-                    'fields'       => [
-                        'objekttitel',
-                        'mainImage',
-                        'mainDetails',
-                        'mainPrice',
-                        'exposeUrl'
-                    ],
-                    'template'     => $this->googleMapPopupTemplate ?: '',
+                    'groups'       => $this->realEstateGroups
+                ]
+            ],
+            'popup' => [
+                'source' => [
+                    'path'    => '/api/estatemanager/v1/estates/%id%',
+                    'param'   => [
+                        'jumpTo'   => $this->jumpTo,
+                        'template' => $this->googleMapPopupTemplate ?: '',
+                        'fields'   => [
+                            'objekttitel',
+                            'mainImage',
+                            'mainDetails',
+                            'mainPrice',
+                            'exposeUrl'
+                        ]
+                    ]
                 ]
             ],
             'spider' => [
@@ -124,9 +131,11 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
                 ]
             ],
             'marker' => [
-                'imagePath'    => $markerImagePath,
-                'imageWidth'   => $markerSize[0],
-                'imageHeight'  => $markerSize[1]
+                'icon' => [
+                    'imagePath'    => $markerImagePath,
+                    'imageWidth'   => $markerSize[0],
+                    'imageHeight'  => $markerSize[1]
+                ]
             ],
             'map' => [
                 'style'          => $this->googleStyle,
