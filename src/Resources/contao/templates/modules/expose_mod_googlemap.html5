@@ -6,7 +6,7 @@
 <script>
     document.addEventListener('googlemaps.onApiReady', function(){
         var <?=$this->mapId?> = new GoogleMapsViewer("<?=$this->mapId?>", <?=$this->config?>);
-        <?=$this->mapId?>.addMarker([<?=$this->lat?>, <?=$this->lng?>], <?=$this->marker?>);
+        <?=$this->mapId?>.addMarker([<?=$this->lat?>, <?=$this->lng?>], '', <?=$this->marker?>);
     });
 </script>
 
