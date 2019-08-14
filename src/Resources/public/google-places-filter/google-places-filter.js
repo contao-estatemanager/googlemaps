@@ -80,8 +80,6 @@ var GooglePlacesFilter = (function () {
             var place = filter.autocomplete.getPlace();
             if (place.geometry) {
                 console.log(place.geometry);
-            } else {
-                filter.dom.placeholder = 'Enter a city';
             }
         };
 
