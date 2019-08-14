@@ -17,7 +17,7 @@
     <p class="error"><?= $this->getErrorAsString() ?></p>
   <?php endif; ?>
 
-  <input type="text" name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>" class="text<?php if ($this->class) echo ' ' . $this->class; ?>" value="<?= StringUtil::specialchars($this->value) ?>" autocomplete="off" placeholder="<?=$this->placeholder?>"<?= $this->getAttributes() ?>>
+  <input type="text" name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>" class="text<?php if ($this->class) echo ' ' . $this->class; ?>" value="<?= StringUtil::specialchars($this->value) ?>" autocomplete="new-password" placeholder="<?=$this->placeholder?>"<?= $this->getAttributes() ?>>
   <script>
       document.addEventListener('googlemaps.onApiReady', function(){
           var ctrl_<?=$this->id?> = new GooglePlacesFilter("ctrl_<?=$this->id?>", <?=$this->config?>);
