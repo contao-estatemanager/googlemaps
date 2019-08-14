@@ -80,7 +80,7 @@ class FilterLocationGoogle extends FilterWidget
                 break;
 
             case 'placeholder':
-                $this->arrAttributes[$strKey] = $varValue;
+
                 break;
 
             default:
