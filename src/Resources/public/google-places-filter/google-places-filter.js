@@ -60,8 +60,8 @@ var GooglePlacesFilter = (function () {
             filter.autocomplete.addListener('place_changed', onPlaceChanged);
 
             // add country autocomplete
-            if(!!filter.form.querySelector('name[country]')){
-                filter.countryField = filter.form.querySelector('name[country]');
+            if(!!filter.form.elements['country']){
+                filter.countryField = filter.form.elements['country'];
                 filter.countryField.addEventListener('change', setAutocompleteCountry);
             }
         };
