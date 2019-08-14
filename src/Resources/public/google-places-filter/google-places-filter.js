@@ -26,6 +26,9 @@ var GooglePlacesFilter = (function () {
             // get dom object
             filter.dom = document.getElementById(filterId);
 
+            // get form object
+            filter.form = filter.dom.form;
+
             if(!filter.dom){
                 console.warn('GooglePlacesFilter: Dom object could not be loaded by ID', filterId);
                 return;
@@ -54,10 +57,26 @@ var GooglePlacesFilter = (function () {
             });
 
             // add listener
-            filter.autocomplete.addEventListener('place_changed', onPlaceChanged);
+            filter.autocomplete.addListener('place_changed', onPlaceChanged);
+
+            // add country autocomplete
+            if(!!filter.form.querySelector('name[country]')){
+                filter.countryField = filter.form.querySelector('name[country]');
+                filter.countryField.addEventListener('change', setAutocompleteCountry);
+            }
         };
 
-        function onPlaceChanged() {
+        var setAutocompleteCountry = function(){
+            var country = filter.countryField.value;
+
+            if (country === 'all' || country === '') {
+                filter.autocomplete.setComponentRestrictions({'country': []});
+            } else {
+                filter.autocomplete.setComponentRestrictions({'country': country});
+            }
+        };
+
+        var onPlaceChanged = function () {
             var place = filter.autocomplete.getPlace();
             if (place.geometry) {
                 console.log(place.geometry);

@@ -53,8 +53,6 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
      */
     protected function compile()
     {
-        global $objPage;
-
         $markerImagePath = '';
         $markerSize = [0,0];
 
@@ -83,7 +81,7 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
         }
 
         // create map id
-        $mapId = 'map' . $this->id . $objPage->id;
+        $mapId = 'map' . $this->id;
 
         // create map configuration
         $mapConfig = [
