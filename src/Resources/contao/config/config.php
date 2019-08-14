@@ -26,4 +26,10 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     (
         'googleMap' => '\\ContaoEstateManager\\GoogleMaps\\ExposeModuleGoogleMap',
     ));
+
+    // Add real estate filter items
+    array_insert($GLOBALS['TL_RFI'], 2, array
+    (
+        'locationGoogle' => '\\ContaoEstateManager\\GoogleMaps\\FilterLocationGoogle',
+    ));
 }

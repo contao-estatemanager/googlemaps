@@ -3,8 +3,11 @@
     $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/estatemanagergooglemaps/google-maps-viewer/google-maps-viewer.js';
     $GLOBALS['TL_CSS'][]        = 'bundles/estatemanagergooglemaps/google-maps-viewer/google-maps-viewer.css|static';
 
+/** Google-Places-Filter */
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/estatemanagergooglemaps/google-places-filter/google-places-filter.js';
+
     /** Vendor sources */
-    $GLOBALS['TL_JAVASCRIPT'][] = 'https://maps.googleapis.com/maps/api/js?key=' . \Config::get('googleMapsApiToken') . '&callback=onGoogleMapsApiReady|async';
+    $GLOBALS['TL_JAVASCRIPT'][] = 'https://maps.googleapis.com/maps/api/js?key=' . \Config::get('googleMapsApiToken') . '&libraries=places&callback=onGoogleMapsApiReady|async';
     $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/estatemanagergooglemaps/google-libraries/markerclusterer.1.0.1.js';
     $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/estatemanagergooglemaps/google-libraries/oms.min.js';
 ?>
