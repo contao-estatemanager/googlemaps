@@ -99,7 +99,7 @@ class FilterLocationGoogle extends FilterWidget
     public function parse($arrAttributes=null)
     {
         $this->value = $_SESSION['FILTER_DATA']['location-google'];
-        $this->config = '{}';
+        $this->config = '{"initInstant":true}';
 
         return parent::parse($arrAttributes);
     }

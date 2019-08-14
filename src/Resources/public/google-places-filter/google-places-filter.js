@@ -13,7 +13,6 @@ var GooglePlacesFilter = (function () {
         var filter = {};
 
         var defaults = {
-            filterId: '',
             initInstant: false,
         };
 
@@ -42,7 +41,7 @@ var GooglePlacesFilter = (function () {
             if(!filter.settings.initInstant){
                 document.addEventListener('googlemaps.onApiReady', createFilter);
 
-                // init filter directly
+            // init filter directly
             }else{
                 createFilter();
             }
