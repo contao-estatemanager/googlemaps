@@ -33,4 +33,9 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
         'locationGoogle' => '\\ContaoEstateManager\\GoogleMaps\\FilterLocationGoogle',
         'radiusGoogle'   => '\\ContaoEstateManager\\GoogleMaps\\FilterRadiusGoogle',
     ));
+
+    // HOOKS
+    $GLOBALS['TL_HOOKS']['getTypeParameter'][]         = array('ContaoEstateManager\\GoogleMaps\\Filter', 'setLocationParameter');
+    $GLOBALS['TL_HOOKS']['getParameterByGroups'][]     = array('ContaoEstateManager\\GoogleMaps\\Filter', 'setLocationParameter');
+    $GLOBALS['TL_HOOKS']['getTypeParameterByGroups'][] = array('ContaoEstateManager\\GoogleMaps\\Filter', 'setLocationParameter');
 }

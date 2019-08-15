@@ -122,7 +122,7 @@ class FilterRadiusGoogle extends FilterWidget
             $arrOptions[] = array
             (
                 'value'    => $value,
-                'selected' => $value === $this->value ? ' selected' : '',
+                'selected' => $value === $_SESSION['FILTER_DATA']['radius-google'] ? ' selected' : '',
                 'label'    => $value.' km'
             );
         }

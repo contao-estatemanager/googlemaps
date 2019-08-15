@@ -98,6 +98,7 @@ class FilterLocationGoogle extends FilterWidget
      */
     public function parse($arrAttributes=null)
     {
+        $this->value = $_SESSION['FILTER_DATA']['location-google'];
         $this->valueCountry = $_SESSION['FILTER_DATA']['country-short'];
         $this->valueCity = $_SESSION['FILTER_DATA']['city'];
         $this->valuePostal = $_SESSION['FILTER_DATA']['postal'];
