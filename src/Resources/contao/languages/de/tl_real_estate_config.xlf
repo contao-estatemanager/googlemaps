@@ -6,6 +6,14 @@
         <source>Google Maps</source>
         <target>Google Maps</target>
       </trans-unit>
+      <trans-unit id="tl_real_estate_config.googleRadiusOptions.0">
+        <source>Available options: Radius</source>
+        <target>Verfügbare Optionen: Radius</target>
+      </trans-unit>
+      <trans-unit id="tl_real_estate_config.googleRadiusOptions.1">
+        <source>Here you can enter a comma separated list of options that should be available for the radius search.</source>
+        <target>Hier können Sie die eine kommagetrente Liste von Optionen eingeben, die für die Radiussuche zur Verfügung stehen soll.</target>
+      </trans-unit>
       <trans-unit id="tl_real_estate_config.googleMapsApiToken.0">
         <source>Google Maps API-Token</source>
         <target>Google Maps API-Token</target>

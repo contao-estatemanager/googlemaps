@@ -11,6 +11,13 @@
 if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     array_insert($GLOBALS['TL_DCA']['tl_real_estate_config']['fields'], 1, array
     (
+        'googleRadiusOptions' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_real_estate_config']['googleRadiusOptions'],
+            'default'                 => '1,2,3,4,5,10,15,20,30,50',
+            'inputType'               => 'text',
+            'eval'                    => array('tl_class'=>'w50')
+        ),
         'googleMapsApiToken' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_real_estate_config']['googleMapsApiToken'],
@@ -99,7 +106,8 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     $GLOBALS['TL_DCA']['tl_real_estate_config']['subpalettes']['googleMapUseMapStyles'] = 'googleMapStylesScript';
 
     Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-        ->addLegend('google_maps_legend', 'template_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_BEFORE)
+        ->addLegend('google_maps_legend', 'filter_config_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
+        ->addField(array('googleRadiusOptions'), 'filter_config_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
         ->addField(array('googleMapsApiToken', 'googleMapsDefaultMarkerSRC', 'googleMapsDefaultClusterSRC', 'googleMapUseClusterStyles', 'googleMapUseMapStyles'), 'google_maps_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
         ->applyToPalette('default', 'tl_real_estate_config')
     ;

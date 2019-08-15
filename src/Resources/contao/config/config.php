@@ -31,5 +31,6 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     array_insert($GLOBALS['TL_RFI'], 2, array
     (
         'locationGoogle' => '\\ContaoEstateManager\\GoogleMaps\\FilterLocationGoogle',
+        'radiusGoogle'   => '\\ContaoEstateManager\\GoogleMaps\\FilterRadiusGoogle',
     ));
 }

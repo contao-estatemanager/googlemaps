@@ -29,6 +29,16 @@ var GooglePlacesFilter = (function () {
             // get form object
             filter.form = filter.dom.form;
 
+            // get hidden location fields
+            filter.fields = {
+                countryShort: filter.form.getElementsByClassName('country-short')[0],
+                city: filter.form.getElementsByClassName('city')[0],
+                postal: filter.form.getElementsByClassName('postal')[0],
+                district: filter.form.getElementsByClassName('district')[0],
+                latitude: filter.form.getElementsByClassName('latitude')[0],
+                longitude: filter.form.getElementsByClassName('longitude')[0],
+            };
+
             if(!filter.dom){
                 console.warn('GooglePlacesFilter: Dom object could not be loaded by ID', filterId);
                 return;
@@ -53,24 +63,36 @@ var GooglePlacesFilter = (function () {
         var createFilter  = function(){
             // create filter
             filter.autocomplete = new google.maps.places.Autocomplete(filter.dom, {
-
+                types: ['geocode']
             });
+
+            filter.autocomplete.setFields(['address_component', 'type', 'geometry']);
 
             // add listener
             filter.autocomplete.addListener('place_changed', onPlaceChanged);
 
+            filter.countryOptions = [];
+
             // add country autocomplete
             if(!!filter.form.elements['country']){
                 filter.countryField = filter.form.elements['country'];
+                for (var i=0; i<filter.countryField.length; i++) {
+                    if (filter.countryField[i].value !== "") {
+                        filter.countryOptions.push(filter.countryField[i].value);
+                    }
+                }
                 filter.countryField.addEventListener('change', setAutocompleteCountry);
             }
+
+            // set default country restriction
+            filter.autocomplete.setComponentRestrictions({'country': filter.countryOptions});
         };
 
         var setAutocompleteCountry = function(){
             var country = filter.countryField.value;
 
             if (country === 'all' || country === '') {
-                filter.autocomplete.setComponentRestrictions({'country': []});
+                filter.autocomplete.setComponentRestrictions({'country': filter.countryOptions});
             } else {
                 filter.autocomplete.setComponentRestrictions({'country': country});
             }
@@ -78,9 +100,39 @@ var GooglePlacesFilter = (function () {
 
         var onPlaceChanged = function () {
             var place = filter.autocomplete.getPlace();
-            if (place.geometry) {
-                console.log(place.geometry);
+            var skipDistrict = false;
+
+            console.log(place);
+
+
+
+            filter.fields.countryShort.value = "";
+            filter.fields.city.value = "";
+            filter.fields.postal.value = "";
+            filter.fields.district.value = "";
+            filter.fields.latitude.value = "";
+            filter.fields.longitude.value = "";
+
+            for (var i=0; i<place.address_components.length; i++) {
+                if (place.address_components[i].types.includes('country')) {
+                    filter.fields.countryShort.value = place.address_components[i].short_name;
+                }
+                if (place.address_components[i].types.includes('locality')) {
+                    filter.fields.city.value = place.address_components[i].long_name;
+                }
+                if (place.address_components[i].types.includes('postal_code')) {
+                    filter.fields.postal.value = place.address_components[i].short_name;
+                }
+                if (place.types.includes('sublocality') && place.address_components[i].types.includes('sublocality') && !skipDistrict) {
+                    filter.fields.district.value = place.address_components[i].long_name;
+                    if (place.address_components[i].types.includes('sublocality_level_2')) {
+                        skipDistrict = true;
+                    }
+                }
             }
+
+            filter.fields.latitude.value = place.geometry.location.lat();
+            filter.fields.longitude.value = place.geometry.location.lng();
         };
 
         /**
