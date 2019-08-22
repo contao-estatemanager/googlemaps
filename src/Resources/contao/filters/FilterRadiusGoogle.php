@@ -15,11 +15,11 @@ use ContaoEstateManager\FilterModel;
 use ContaoEstateManager\FilterWidget;
 
 /**
- * Class FilterLocationGoogle
+ * Class FilterRadiusGoogle
  *
  * @author Fabian Ekert <fabian@oveleon.de>
  */
-class FilterLocationGoogle extends FilterWidget
+class FilterRadiusGoogle extends FilterWidget
 {
 
     /**
@@ -34,14 +34,14 @@ class FilterLocationGoogle extends FilterWidget
      *
      * @var string
      */
-    protected $strTemplate = 'filter_location_google';
+    protected $strTemplate = 'filter_radius_google';
 
     /**
      * The CSS class prefix
      *
      * @var string
      */
-    protected $strPrefix = 'widget widget-location-google';
+    protected $strPrefix = 'widget widget-radius-google';
 
     /**
      * Initialize the object
@@ -65,7 +65,7 @@ class FilterLocationGoogle extends FilterWidget
         switch ($strKey)
         {
             case 'name':
-                $this->strName = 'location-google';
+                $this->strName = 'radius-google';
                 break;
 
             case 'mandatory':
@@ -78,9 +78,6 @@ class FilterLocationGoogle extends FilterWidget
                     unset($this->arrAttributes['required']);
                 }
                 parent::__set($strKey, $varValue);
-                break;
-
-            case 'placeholder':
                 break;
 
             default:
@@ -98,15 +95,39 @@ class FilterLocationGoogle extends FilterWidget
      */
     public function parse($arrAttributes=null)
     {
-        $this->value = $_SESSION['FILTER_DATA']['location-google'];
-        $this->valueCountry = $_SESSION['FILTER_DATA']['country-short'];
-        $this->valueCity = $_SESSION['FILTER_DATA']['city'];
-        $this->valuePostal = $_SESSION['FILTER_DATA']['postal'];
-        $this->valueDistrict = $_SESSION['FILTER_DATA']['district'];
-        $this->valueLatitude = $_SESSION['FILTER_DATA']['latitude'];
-        $this->valueLongitude = $_SESSION['FILTER_DATA']['longitude'];
+        $strClass = 'select';
 
-        $this->config = '{"initInstant":true}';
+        // Custom class
+        if ($this->strClass != '')
+        {
+            $strClass .= ' ' . $this->strClass;
+        }
+
+        $this->strClass = $strClass;
+
+        $strOptions = $this->googleRadiusOptions ? $this->googleRadiusOptions : \Config::get('googleRadiusOptions');
+        $options = array_map('trim', explode(',', $strOptions));
+
+        $arrOptions = array();
+
+        $arrOptions[] = array
+        (
+            'value'    => '',
+            'selected' => '',
+            'label'    => $this->placeholder
+        );
+
+        foreach ($options as $value)
+        {
+            $arrOptions[] = array
+            (
+                'value'    => $value,
+                'selected' => $value === $_SESSION['FILTER_DATA']['radius-google'] ? ' selected' : '',
+                'label'    => $value.' km'
+            );
+        }
+
+        $this->options = $arrOptions;
 
         return parent::parse($arrAttributes);
     }
