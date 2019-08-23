@@ -3,10 +3,10 @@
       <a href="<?= $this->exposeUrl ?>" title="<?= $this->objekttitel['value'] ?>">
     <?php endif; ?>
 
-        <div class="main-image">
-            <img src="<?=$this->mainImage?>" title="<?= $this->objekttitel['value'] ?>"/>
-        </div>
-
+    <div class="main-image">
+        <img src="<?=$this->mainImage?>" title="<?= $this->objekttitel['value'] ?>"/>
+    </div>
+    <div class="content">
         <div class="title"><?=$this->objekttitel['value']?></div>
 
         <div class="main-details">
@@ -22,7 +22,7 @@
             <div class="main-price <?= $this->mainPrice['class'] ?>" title="<?= $this->mainPrice['label'] ?>"><?= $this->mainPrice['value'] ?></div>
             <div class="main-price-label"><?= $this->mainPrice['label'] ?></div>
         </div>
-
+    </div>
     <?php if($this->exposeUrl): ?>
       </a>
     <?php endif; ?>
