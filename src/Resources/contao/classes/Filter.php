@@ -31,7 +31,7 @@ class Filter extends \Controller
     {
         $t = $this->strTable;
 
-        if ($_SESSION['FILTER_DATA']['radius-google'])
+        if ($_SESSION['FILTER_DATA']['radius-google'] && $_SESSION['FILTER_DATA']['latitude'] && $_SESSION['FILTER_DATA']['longitude'])
         {
             $arrColumns[] = "(6371*acos(cos(radians(?))*cos(radians($t.breitengrad))*cos(radians($t.laengengrad)-radians(?))+sin(radians(?))*sin(radians($t.breitengrad)))) <= ?";
             $arrValues[] = $_SESSION['FILTER_DATA']['latitude'];

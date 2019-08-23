@@ -29,16 +29,6 @@ var GooglePlacesFilter = (function () {
             // get form object
             filter.form = filter.dom.form;
 
-            // get hidden location fields
-            filter.fields = {
-                countryShort: filter.form.getElementsByClassName('country-short')[0],
-                city: filter.form.getElementsByClassName('city')[0],
-                postal: filter.form.getElementsByClassName('postal')[0],
-                district: filter.form.getElementsByClassName('district')[0],
-                latitude: filter.form.getElementsByClassName('latitude')[0],
-                longitude: filter.form.getElementsByClassName('longitude')[0],
-            };
-
             if(!filter.dom){
                 console.warn('GooglePlacesFilter: Dom object could not be loaded by ID', filterId);
                 return;
@@ -49,6 +39,19 @@ var GooglePlacesFilter = (function () {
                 console.warn('GooglePlacesFilter: google.maps is not defined. If you load the script by async, use onGoogleMapsApiReady-Callback and set option initInstant to false.');
                 return;
             }
+
+            // get hidden location fields
+            filter.locationFields = {
+                countryShort: filter.form.elements['country-short'],
+                city: filter.form.elements['city'],
+                postal: filter.form.elements['postal'],
+                district: filter.form.elements['district'],
+                latitude: filter.form.elements['latitude'],
+                longitude: filter.form.elements['longitude']
+            };
+
+            filter.countryField = filter.form.elements['country'];
+            filter.radiusField = filter.form.elements['radius-google'];
 
             // init on api ready callback
             if(!filter.settings.initInstant){
@@ -69,32 +72,43 @@ var GooglePlacesFilter = (function () {
             filter.autocomplete.setFields(['address_component', 'type', 'geometry']);
 
             // add listener
+            //filter.dom.addEventListener('blur', onLocationValueBlur);
             filter.autocomplete.addListener('place_changed', onPlaceChanged);
 
             filter.countryOptions = [];
 
             // add country autocomplete
-            if(!!filter.form.elements['country']){
-                filter.countryField = filter.form.elements['country'];
+            if(filter.countryField){
                 for (var i=0; i<filter.countryField.length; i++) {
                     if (filter.countryField[i].value !== "") {
                         filter.countryOptions.push(filter.countryField[i].value);
                     }
                 }
-                filter.countryField.addEventListener('change', setAutocompleteCountry);
+                filter.countryField.addEventListener('change', onCountryChanged);
             }
 
             // set default country restriction
             filter.autocomplete.setComponentRestrictions({'country': filter.countryOptions});
         };
 
-        var setAutocompleteCountry = function(){
+        var onLocationValueBlur = function () {
+            if (filter.dom.value) {
+            }
+        };
+
+        var onCountryChanged = function () {
             var country = filter.countryField.value;
+
+            console.log(country);
 
             if (country === 'all' || country === '') {
                 filter.autocomplete.setComponentRestrictions({'country': filter.countryOptions});
             } else {
-                filter.autocomplete.setComponentRestrictions({'country': country});
+                filter.dom.value = '';
+                filter.dom.dispatchEvent(new Event('change'));
+                clearLocationFields();
+
+                filter.autocomplete.setComponentRestrictions({'country': [country]});
             }
         };
 
@@ -102,37 +116,44 @@ var GooglePlacesFilter = (function () {
             var place = filter.autocomplete.getPlace();
             var skipDistrict = false;
 
-            console.log(place);
+            if (place.types.includes('street_address') || place.types.includes('route') || place.types.includes('premise')) {
+                filter.radiusField.selectedIndex = 5;
+                filter.radiusField.options[0].style.display = 'none';
+            } else {
+                filter.radiusField.options[0].style.display = '';
+                filter.radiusField.selectedIndex = 0;
+                console.log(place);
+            }
+            filter.radiusField.dispatchEvent(new Event('change'));
 
-
-
-            filter.fields.countryShort.value = "";
-            filter.fields.city.value = "";
-            filter.fields.postal.value = "";
-            filter.fields.district.value = "";
-            filter.fields.latitude.value = "";
-            filter.fields.longitude.value = "";
+            clearLocationFields();
 
             for (var i=0; i<place.address_components.length; i++) {
                 if (place.address_components[i].types.includes('country')) {
-                    filter.fields.countryShort.value = place.address_components[i].short_name;
+                    filter.locationFields.countryShort.value = place.address_components[i].short_name;
                 }
                 if (place.address_components[i].types.includes('locality')) {
-                    filter.fields.city.value = place.address_components[i].long_name;
+                    filter.locationFields.city.value = place.address_components[i].long_name;
                 }
                 if (place.address_components[i].types.includes('postal_code')) {
-                    filter.fields.postal.value = place.address_components[i].short_name;
+                    filter.locationFields.postal.value = place.address_components[i].short_name;
                 }
                 if (place.types.includes('sublocality') && place.address_components[i].types.includes('sublocality') && !skipDistrict) {
-                    filter.fields.district.value = place.address_components[i].long_name;
+                    filter.locationFields.district.value = place.address_components[i].long_name;
                     if (place.address_components[i].types.includes('sublocality_level_2')) {
                         skipDistrict = true;
                     }
                 }
             }
 
-            filter.fields.latitude.value = place.geometry.location.lat();
-            filter.fields.longitude.value = place.geometry.location.lng();
+            filter.locationFields.latitude.value = place.geometry.location.lat();
+            filter.locationFields.longitude.value = place.geometry.location.lng();
+        };
+
+        var clearLocationFields = function () {
+            for (var field in filter.locationFields) {
+                filter.locationFields[field].value = "";
+            }
         };
 
         /**
