@@ -13,7 +13,7 @@
 <?php $this->endblock(); ?>
 
 <?php $this->block('filter_item'); ?>
-  <input type="search" name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>" class="text<?php if ($this->class) echo ' ' . $this->class; ?>" value="<?= StringUtil::specialchars($this->value) ?>" autocomplete="off" placeholder="<?=$this->placeholder?>"<?= $this->getAttributes() ?>>
+  <input type="search" name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>" class="text<?php if ($this->class) echo ' ' . $this->class; ?>" value="<?= StringUtil::specialchars($this->value) ?>" autocomplete="off" placeholder="<?=$this->placeholder?>" onfocus="this.removeAttribute('readonly');" readonly<?= $this->getAttributes() ?>>
   <input type="hidden" name="country-short" class="country-short" value="<?= $this->valueCountry ?>">
   <input type="hidden" name="city" class="city"  value="<?= $this->valueCity ?>">
   <input type="hidden" name="postal" class="postal"  value="<?= $this->valuePostal ?>">
