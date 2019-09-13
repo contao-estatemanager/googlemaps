@@ -95,6 +95,30 @@
         <source></source>
         <target>Erlaubt das bewegen mit gedrückter Maustaste, sowie einen Doppelklick zum zoomen</target>
       </trans-unit>
+      <trans-unit id="tl_module.googleFilterAddSorting.0">
+        <source>Add location sorting</source>
+        <target>Standortsortierung hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleFilterAddSorting.1">
+        <source>Adds a sorting option based on a location.</source>
+        <target>Fügt eine Sortiermöglichkeit anhand eines Standortes hinzu.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleFilterLat.0">
+        <source>Longitude</source>
+        <target>Längengrad</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleFilterLat.1">
+        <source>The longitude value for the location sorting must be entered here.</source>
+        <target>Hier muss der Längengrad für die Standort-Sortiereung eingetragen werden.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleFilterLng.0">
+        <source>Latitude</source>
+        <target>Breitengrad</target>
+      </trans-unit>
+      <trans-unit id="tl_module.googleFilterLng.1">
+        <source>The latitude value for the location sorting must be entered here.</source>
+        <target>Hier muss der Breitengrad für die Standort-Sortiereung eingetragen werden.</target>
+      </trans-unit>
 
       <trans-unit id="tl_module.googleControls.0">
         <source>Controls</source>
@@ -127,6 +151,11 @@
       <trans-unit id="tl_module.googleMapTypeControl.1">
         <source></source>
         <target>Anzeigen der verfügbaren Kartendarstellung. Ermöglicht dem Benutzer die Darstellung der Karte selbst zu wählen.</target>
+      </trans-unit>
+
+      <trans-unit id="tl_module.location.0">
+        <source>Location</source>
+        <target>Standort</target>
       </trans-unit>
 
       <trans-unit id="tl_module.googleMapPopupTemplate.0">

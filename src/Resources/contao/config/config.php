@@ -38,4 +38,5 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     $GLOBALS['TL_HOOKS']['getTypeParameter'][]         = array('ContaoEstateManager\\GoogleMaps\\Filter', 'setLocationParameter');
     $GLOBALS['TL_HOOKS']['getParameterByGroups'][]     = array('ContaoEstateManager\\GoogleMaps\\Filter', 'setLocationParameter');
     $GLOBALS['TL_HOOKS']['getTypeParameterByGroups'][] = array('ContaoEstateManager\\GoogleMaps\\Filter', 'setLocationParameter');
+    $GLOBALS['TL_HOOKS']['addRealEstateSorting'][]     = array('ContaoEstateManager\\GoogleMaps\\Filter', 'addRealEstateSorting');
 }

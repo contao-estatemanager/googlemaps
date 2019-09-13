@@ -10,6 +10,8 @@
 
 namespace ContaoEstateManager\GoogleMaps;
 
+use ContaoEstateManager\Translator;
+
 class Filter extends \Controller
 {
 
@@ -21,13 +23,14 @@ class Filter extends \Controller
 
     /**
      * Set google location filter parameters
+     *
      * @param $arrColumns
      * @param $arrValues
      * @param $arrOptions
      * @param $mode
      * @param $context
      */
-    public function setLocationParameter(&$arrColumns, &$arrValues, &$arrOptions, $mode, $addFragments, $context)
+    public function setLocationParameter(&$arrColumns, &$arrValues, &$arrOptions, $mode, $addFragments, $objModule, $context)
     {
         $t = $this->strTable;
 
@@ -59,5 +62,24 @@ class Filter extends \Controller
                 $arrValues[] = $_SESSION['FILTER_DATA']['district'];
             }
         }
+
+        if ($objModule->type === 'realEstateResultList' && $objModule->googleFilterAddSorting && $_SESSION['SORTING'] === 'location')
+        {
+            if ($objModule->googleFilterLat && $objModule->googleFilterLng)
+            {
+                $arrOptions['order'] = "(6371*acos(cos(radians($objModule->googleFilterLat))*cos(radians($t.breitengrad))*cos(radians($t.laengengrad)-radians($objModule->googleFilterLng))+sin(radians($objModule->googleFilterLat))*sin(radians($t.breitengrad)))) ASC";
+            }
+        }
+    }
+
+    /**
+     * Add real estate location sorting option.
+     *
+     * @param $arrOptions
+     * @param $context
+     */
+    public function addRealEstateSorting(&$arrOptions, $context)
+    {
+        $arrOptions['location'] = Translator::translateFilter('location');
     }
 }
