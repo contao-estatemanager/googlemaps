@@ -80,6 +80,9 @@ class Filter extends \Controller
      */
     public function addRealEstateSorting(&$arrOptions, $context)
     {
-        $arrOptions['location'] = Translator::translateFilter('location');
+        if ($context->googleFilterAddSorting)
+        {
+            $arrOptions['location'] = Translator::translateFilter('location');
+        }
     }
 }
