@@ -76,10 +76,13 @@ class Filter extends \Controller
      * Add real estate location sorting option.
      *
      * @param $arrOptions
-     * @param $context
+     * @param $objModule
      */
-    public function addRealEstateSorting(&$arrOptions, $context)
+    public function addRealEstateSorting(&$arrOptions, $objModule)
     {
-        $arrOptions['location'] = Translator::translateFilter('location');
+        if ($objModule->googleFilterAddSorting)
+        {
+            $arrOptions['location'] = Translator::translateFilter('location');
+        }
     }
 }

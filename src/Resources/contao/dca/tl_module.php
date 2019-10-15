@@ -173,7 +173,7 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
             'label'                   => &$GLOBALS['TL_LANG']['tl_module']['googleFilterAddSorting'],
             'exclude'                 => true,
             'inputType'               => 'checkbox',
-            'eval'                    => array('tl_class'=>'w50 m12'),
+            'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'w50 m12 clr'),
             'sql'                     => "char(1) NOT NULL default ''"
         ),
         'googleFilterLat' => array
@@ -181,7 +181,7 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
             'label'                   => &$GLOBALS['TL_LANG']['tl_module']['googleFilterLat'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('tl_class'=>'w50'),
+            'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50 clr'),
             'sql'                     => "varchar(32) NOT NULL default ''"
         ),
         'googleFilterLng' => array
@@ -189,16 +189,23 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
             'label'                   => &$GLOBALS['TL_LANG']['tl_module']['googleFilterLng'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('tl_class'=>'w50'),
+            'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
             'sql'                     => "varchar(32) NOT NULL default ''"
         ),
     ));
 
+    // Add sorting option
     $GLOBALS['TL_DCA']['tl_module']['fields']['defaultSorting']['options'][] = 'location';
+
+    // Add palettes
+    $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][]            = 'googleFilterAddSorting';
+
+    // Add subpalettes
+    $GLOBALS['TL_DCA']['tl_module']['subpalettes']['googleFilterAddSorting'] = 'googleFilterLat,googleFilterLng';
 
     // Extend sorting subpalette
     Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-        ->addField(array('googleFilterAddSorting', 'googleFilterLat', 'googleFilterLng'), 'sorting_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+        ->addField(array('googleFilterAddSorting'), 'sorting_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
         ->applyToSubpalette('addSorting', 'tl_module')
     ;
 }
