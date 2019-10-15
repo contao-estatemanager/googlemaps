@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAEE,wBAAc;EACZ,aAAa,EAAE,CAAC;EAChB,OAAO,EAAE,CAAC;AAGZ,wBAAc;EACZ,UAAU,EAAE,iBAAiB;AAG/B,qBAAW;EACT,OAAO,EAAE,KAAK;EACd,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,kDAAkD;EACpE,iBAAiB,EAAE,SAAS;AAG9B,yBAAiB;EACf,OAAO,EAAE,IAAI",
-"sources": ["google-maps-viewer.scss"],
-"names": [],
-"file": "google-maps-viewer.css"
-}
+{"version":3,"sourceRoot":"","sources":["google-maps-viewer.scss"],"names":[],"mappings":"AAEE;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE","file":"google-maps-viewer.css"}
