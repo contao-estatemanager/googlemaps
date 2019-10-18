@@ -51,6 +51,7 @@ var GooglePlacesFilter = (function () {
             };
 
             filter.countryField = filter.form.elements['country'];
+            filter.locationField = filter.form.elements['location-google'];
             filter.radiusField = filter.form.elements['radius-google'];
 
             // init on api ready callback
@@ -74,11 +75,12 @@ var GooglePlacesFilter = (function () {
             // add listener
             //filter.dom.addEventListener('blur', onLocationValueBlur);
             filter.autocomplete.addListener('place_changed', onPlaceChanged);
+            filter.locationField.addEventListener('change', onLocationValueChange);
 
             filter.countryOptions = [];
 
             // add country autocomplete
-            if(filter.countryField){
+            if(filter.countryField) {
                 for (var i=0; i<filter.countryField.length; i++) {
                     if (filter.countryField[i].value !== "") {
                         filter.countryOptions.push(filter.countryField[i].value);
@@ -87,8 +89,14 @@ var GooglePlacesFilter = (function () {
                 filter.countryField.addEventListener('change', onCountryChanged);
             }
 
+            if (filter.locationField) {
+                filter.locationField.addEventListener('keydown', onSubmitLocation);
+            }
+
             // set default country restriction
             filter.autocomplete.setComponentRestrictions({'country': filter.countryOptions});
+
+            onCountryChanged();
         };
 
         var onLocationValueBlur = function () {
@@ -99,14 +107,15 @@ var GooglePlacesFilter = (function () {
         var onCountryChanged = function () {
             var country = filter.countryField.value;
 
-            console.log(country);
-
             if (country === 'all' || country === '') {
                 filter.autocomplete.setComponentRestrictions({'country': filter.countryOptions});
             } else {
-                filter.dom.value = '';
-                filter.dom.dispatchEvent(new Event('change'));
-                clearLocationFields();
+                if (!country.includes(filter.locationFields.countryShort.value)) {
+                    filter.dom.value = '';
+                    filter.dom.dispatchEvent(new Event('change'));
+                    clearLocationFields();
+                    onPlaceChanged();
+                }
 
                 filter.autocomplete.setComponentRestrictions({'country': [country]});
             }
@@ -116,15 +125,7 @@ var GooglePlacesFilter = (function () {
             var place = filter.autocomplete.getPlace();
             var skipDistrict = false;
 
-            if (place.types.includes('street_address') || place.types.includes('route') || place.types.includes('premise')) {
-                filter.radiusField.selectedIndex = 5;
-                filter.radiusField.options[0].style.display = 'none';
-            } else {
-                filter.radiusField.options[0].style.display = '';
-                filter.radiusField.selectedIndex = 0;
-                console.log(place);
-            }
-            filter.radiusField.dispatchEvent(new Event('change'));
+            resetRadiusField(place);
 
             clearLocationFields();
 
@@ -153,6 +154,33 @@ var GooglePlacesFilter = (function () {
         var clearLocationFields = function () {
             for (var field in filter.locationFields) {
                 filter.locationFields[field].value = "";
+            }
+        };
+
+        var onLocationValueChange = function () {
+            if (this.value === '') {
+                clearLocationFields();
+                resetRadiusField(false);
+            }
+        };
+
+        var resetRadiusField = function (place) {
+            if (place && filter.dom.value !== '' && (place.types.includes('street_address') || place.types.includes('route') || place.types.includes('premise'))) {
+                if (filter.radiusField.selectedIndex === 0) {
+                    filter.radiusField.selectedIndex = 5;
+                }
+                filter.radiusField.options[0].style.display = 'none';
+            } else {
+                filter.radiusField.options[0].style.display = '';
+                filter.radiusField.selectedIndex = 0;
+            }
+            filter.radiusField.dispatchEvent(new Event('change'));
+        };
+
+        var onSubmitLocation = function (event) {
+            console.log(filter);
+            if (event.which == 13 || event.keyCode === 13) {
+                event.preventDefault();
             }
         };
 
