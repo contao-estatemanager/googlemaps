@@ -53,6 +53,9 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
      */
     protected function compile()
     {
+        /** @var \PageModel $objPage */
+        global $objPage;
+
         $markerImagePath = '';
         $markerSize = [0,0];
 
@@ -92,7 +95,8 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
                     'dataType'     => 'geojson',
                     'filter'       => true,
                     'filterMode'   => $this->filterMode,
-                    'groups'       => $this->realEstateGroups
+                    'groups'       => $this->realEstateGroups,
+                    'pageId'       => $objPage->id
                 ]
             ],
             'popup' => [

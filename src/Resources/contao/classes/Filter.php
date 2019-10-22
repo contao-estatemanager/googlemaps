@@ -85,4 +85,31 @@ class Filter extends \Controller
             $arrOptions['location'] = Translator::translateFilter('location');
         }
     }
+
+    /**
+     * Add real estate location sorting option.
+     *
+     * @param $arrSubmitted
+     * @param $arrLabels
+     * @param $context
+     */
+    public function resetLocationFilter($arrSubmitted, $arrLabels, $context)
+    {
+        if ($_SESSION['FILTER_DATA']['location-google'] === '')
+        {
+            unset($_SESSION['FILTER_DATA']['country-short']);
+            unset($_SESSION['FILTER_DATA']['city']);
+            unset($_SESSION['FILTER_DATA']['postal']);
+            unset($_SESSION['FILTER_DATA']['district']);
+            unset($_SESSION['FILTER_DATA']['latitude']);
+            unset($_SESSION['FILTER_DATA']['longitude']);
+
+            unset($_POST['country-short']);
+            unset($_POST['city']);
+            unset($_POST['postal']);
+            unset($_POST['district']);
+            unset($_POST['latitude']);
+            unset($_POST['longitude']);
+        }
+    }
 }
