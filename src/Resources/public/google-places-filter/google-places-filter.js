@@ -96,6 +96,9 @@ var GooglePlacesFilter = (function () {
             // set default country restriction
             filter.autocomplete.setComponentRestrictions({'country': filter.countryOptions});
 
+            // set autocomplete for major browsers
+            filter.dom.setAttribute('autocomplete', 'no');
+
             onCountryChanged();
         };
 
