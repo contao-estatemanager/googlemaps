@@ -76,6 +76,7 @@ var GooglePlacesFilter = (function () {
             //filter.dom.addEventListener('blur', onLocationValueBlur);
             filter.autocomplete.addListener('place_changed', onPlaceChanged);
             filter.locationField.addEventListener('change', onLocationValueChange);
+            filter.locationField.addEventListener('focus', onLocationFocus);
 
             filter.countryOptions = [];
 
@@ -96,15 +97,17 @@ var GooglePlacesFilter = (function () {
             // set default country restriction
             filter.autocomplete.setComponentRestrictions({'country': filter.countryOptions});
 
-            // set autocomplete for major browsers
-            filter.locationField.setAttribute('autocomplete', 'no');
-
             onCountryChanged();
         };
 
         var onLocationValueBlur = function () {
             if (filter.dom.value) {
             }
+        };
+
+        var onLocationFocus = function () {
+            // set autocomplete for major browsers
+            filter.locationField.setAttribute('autocomplete', 'no');
         };
 
         var onCountryChanged = function () {
