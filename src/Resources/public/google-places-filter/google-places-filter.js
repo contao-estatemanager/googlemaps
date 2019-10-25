@@ -1,8 +1,9 @@
 /**
  * Google Places Filter
  *
- * @author Fabian Ekert <fabian@oveleon.de>
- * @version 0.0.1
+ * @author Fabian Ekert <https://github.com/eki89>
+ * @author Daniele Sciannimanica <https://github.com/doishub>
+ * @version 0.0.2
  */
 var GooglePlacesFilter = (function () {
 
@@ -53,6 +54,11 @@ var GooglePlacesFilter = (function () {
             filter.countryField = filter.form.elements['country'];
             filter.locationField = filter.form.elements['location-google'];
             filter.radiusField = filter.form.elements['radius-google'];
+
+            // skip if no location field found
+            if(!filter.locationField) {
+                return;
+            }
 
             // init on api ready callback
             if(!filter.settings.initInstant){
