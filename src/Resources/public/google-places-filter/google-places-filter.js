@@ -190,7 +190,6 @@ var GooglePlacesFilter = (function () {
         };
 
         var onSubmitLocation = function (event) {
-            console.log(filter);
             if (event.which == 13 || event.keyCode === 13) {
                 event.preventDefault();
             }
