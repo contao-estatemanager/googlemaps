@@ -1,8 +1,9 @@
 /**
  * Google Places Filter
  *
- * @author Fabian Ekert <fabian@oveleon.de>
- * @version 0.0.1
+ * @author Fabian Ekert <https://github.com/eki89>
+ * @author Daniele Sciannimanica <https://github.com/doishub>
+ * @version 0.0.2
  */
 var GooglePlacesFilter = (function () {
 
@@ -54,6 +55,11 @@ var GooglePlacesFilter = (function () {
             filter.locationField = filter.form.elements['location-google'];
             filter.radiusField = filter.form.elements['radius-google'];
 
+            // skip if no location field found
+            if(!filter.locationField) {
+                return;
+            }
+
             // init on api ready callback
             if(!filter.settings.initInstant){
                 document.addEventListener('googlemaps.onApiReady', createFilter);
@@ -76,6 +82,7 @@ var GooglePlacesFilter = (function () {
             //filter.dom.addEventListener('blur', onLocationValueBlur);
             filter.autocomplete.addListener('place_changed', onPlaceChanged);
             filter.locationField.addEventListener('change', onLocationValueChange);
+            filter.locationField.addEventListener('focus', onLocationFocus);
 
             filter.countryOptions = [];
 
@@ -102,6 +109,11 @@ var GooglePlacesFilter = (function () {
         var onLocationValueBlur = function () {
             if (filter.dom.value) {
             }
+        };
+
+        var onLocationFocus = function () {
+            // set autocomplete for major browsers
+            filter.locationField.setAttribute('autocomplete', 'no');
         };
 
         var onCountryChanged = function () {
@@ -178,7 +190,6 @@ var GooglePlacesFilter = (function () {
         };
 
         var onSubmitLocation = function (event) {
-            console.log(filter);
             if (event.which == 13 || event.keyCode === 13) {
                 event.preventDefault();
             }
