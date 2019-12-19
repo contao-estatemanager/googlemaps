@@ -120,6 +120,14 @@
          <source>Displays the available map view. Allows users to change how the map is being displayed.</source>
          <target>Zeigt die verfügbare Kartenansicht an. Ermöglicht es Benutzern, die Darstellung der Karte zu ändern.</target>
        </trans-unit>
+       <trans-unit id="tl_expose_module.iFrameFallbackIfAddressNotPublished.0">
+         <source>Use region fallback</source>
+         <target>Regionen-Fallback verwenden</target>
+       </trans-unit>
+       <trans-unit id="tl_expose_module.iFrameFallbackIfAddressNotPublished.1">
+         <source>Displays only an outline based on the postal code for objects without published address.</source>
+         <target>Zeigt bei Objekten ohne veröffentlichte Adresse nur einen Umriss auf Basis der Postleitzahl an.</target>
+       </trans-unit>
     </body>
   </file>
 </xliff>

@@ -2,12 +2,15 @@
 
 <?php $this->block('content'); ?>
 
-<div id="<?=$this->mapId?>" class="google-map"></div>
-<script>
-    document.addEventListener('googlemaps.onApiReady', function(){
-        var <?=$this->mapId?> = new GoogleMapsViewer("<?=$this->mapId?>", <?=$this->config?>);
-        <?=$this->mapId?>.addMarker([<?=$this->lat?>, <?=$this->lng?>], '', <?=$this->marker?>);
-    });
-</script>
-
+<?php if($this->useFallbackIframe): ?>
+    <iframe class="google-map" src="<?=$this->src?>" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+<?php else: ?>
+    <div id="<?=$this->mapId?>" class="google-map"></div>
+    <script>
+        document.addEventListener('googlemaps.onApiReady', function(){
+            var <?=$this->mapId?> = new GoogleMapsViewer("<?=$this->mapId?>", <?=$this->config?>);
+            <?=$this->mapId?>.addMarker([<?=$this->lat?>, <?=$this->lng?>], '', <?=$this->marker?>);
+        });
+    </script>
+<?php endif; ?>
 <?php $this->endblock(); ?>
