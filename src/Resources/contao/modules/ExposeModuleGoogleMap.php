@@ -60,11 +60,11 @@ class ExposeModuleGoogleMap extends ExposeModule
         {
             if($apiKey = \Config::get('googleMapsApiToken'))
             {
-                $this->Template->src = "https://www.google.com/maps/embed/v1/search?q=" . $this->realEstate->plz . "&key=" . $apiKey;
+                $this->Template->src = "https://www.google.com/maps/embed/v1/search?q=" . $this->realEstate->plz . ($this->realEstate->land ? ',+' . $this->realEstate->land : '') . "&key=" . $apiKey;
             }
             else
             {
-                $this->Template->src = "https://www.google.com/maps?hl=de&q=" . $this->realEstate->plz . "&ie=UTF8&z=11&output=embed";
+                $this->Template->src = "https://www.google.com/maps?hl=de&q=" . $this->realEstate->plz . ($this->realEstate->land ? ',+' . $this->realEstate->land : '') . "&ie=UTF8&z=11&output=embed";
             }
 
             $this->Template->useFallbackIframe = true;
