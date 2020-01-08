@@ -2,6 +2,14 @@
 <xliff version="1.1">
   <file datatype="php" original="src/Resources/contao/languages/en/tl_filter_item.php" source-language="en" target-language="de">
     <body>
+      <trans-unit id="tl_filter_item.googleAutocompleteType.0">
+        <source>Autocomplete type</source>
+        <target>Typ der Autovervollständigung</target>
+      </trans-unit>
+      <trans-unit id="tl_filter_item.googleAutocompleteType.1">
+        <source>The Google autocomplete type must be specified here.</source>
+        <target>Hier muss der Typ der Google Autovervollständigung angegeben werden.</target>
+      </trans-unit>
       <trans-unit id="tl_filter_item.googleRadiusOptions.0">
         <source>Available options: Radius</source>
         <target>Verfügbare Optionen: Radius</target>

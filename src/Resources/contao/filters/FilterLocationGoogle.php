@@ -106,7 +106,9 @@ class FilterLocationGoogle extends FilterWidget
         $this->valueLatitude = $_SESSION['FILTER_DATA']['latitude'];
         $this->valueLongitude = $_SESSION['FILTER_DATA']['longitude'];
 
-        $this->config = '{"initInstant":true}';
+        $types = $this->googleAutocompleteType === 'regions' ? '('.$this->googleAutocompleteType.')' : $this->googleAutocompleteType;
+
+        $this->config = '{"initInstant":true,"types":"'.$types.'"}';
 
         return parent::parse($arrAttributes);
     }

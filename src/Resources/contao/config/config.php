@@ -12,6 +12,9 @@
 $GLOBALS['TL_ESTATEMANAGER_ADDONS'][] = array('ContaoEstateManager\\GoogleMaps', 'AddonManager');
 
 if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
+    // Models
+    $GLOBALS['TL_MODELS']['tl_geo_postal_code'] = '\\ContaoEstateManager\\GoogleMaps\\GeoPostalCodeModel';
+
     // Front end modules
     array_insert($GLOBALS['FE_MOD'], 0, array
     (
@@ -40,4 +43,5 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     $GLOBALS['TL_HOOKS']['getTypeParameterByGroups'][] = array('ContaoEstateManager\\GoogleMaps\\Filter', 'setLocationParameter');
     $GLOBALS['TL_HOOKS']['addRealEstateSorting'][]     = array('ContaoEstateManager\\GoogleMaps\\Filter', 'addRealEstateSorting');
     $GLOBALS['TL_HOOKS']['prepareFilterData'][]        = array('ContaoEstateManager\\GoogleMaps\\Filter', 'resetLocationFilter');
+    //$GLOBALS['TL_HOOKS']['beforeRealEstateImport'][]   = array('ContaoEstateManager\\GoogleMaps\\PostalCode', 'determinePostalCodeGeoData');
 }

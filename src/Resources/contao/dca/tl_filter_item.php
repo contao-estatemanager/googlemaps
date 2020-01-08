@@ -10,10 +10,20 @@
 
 if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     // Add palettes
-    $GLOBALS['TL_DCA']['tl_filter_item']['palettes']['locationGoogle'] = '{type_legend},type,label;{field_config_legend},mandatory,placeholder;{expert_legend:hide},class,accesskey,tabindex;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
+    $GLOBALS['TL_DCA']['tl_filter_item']['palettes']['locationGoogle'] = '{type_legend},type,label;{field_config_legend},mandatory,placeholder,googleAutocompleteType;{expert_legend:hide},class,accesskey,tabindex;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
     $GLOBALS['TL_DCA']['tl_filter_item']['palettes']['radiusGoogle']   = '{type_legend},type,label;{field_config_legend},mandatory,placeholder,googleRadiusOptions;{expert_legend:hide},class,accesskey,tabindex;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
 
     // Add fields
+    $GLOBALS['TL_DCA']['tl_filter_item']['fields']['googleAutocompleteType'] = array
+    (
+        'label'                   => &$GLOBALS['TL_LANG']['tl_filter_item']['googleAutocompleteType'],
+        'exclude'                 => true,
+        'inputType'               => 'select',
+        'options'                 => array('geocode', 'regions'),
+        'eval'                    => array('tl_class'=>'w50 clr'),
+        'sql'                     => "varchar(32) NOT NULL default 'geocode'",
+    );
+
     $GLOBALS['TL_DCA']['tl_filter_item']['fields']['googleRadiusOptions'] = array
     (
         'label'                   => &$GLOBALS['TL_LANG']['tl_filter_item']['googleRadiusOptions'],

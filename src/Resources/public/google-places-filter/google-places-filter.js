@@ -73,7 +73,7 @@ var GooglePlacesFilter = (function () {
         var createFilter  = function(){
             // create filter
             filter.autocomplete = new google.maps.places.Autocomplete(filter.dom, {
-                types: ['geocode']
+                types: [filter.settings.types]
             });
 
             filter.autocomplete.setFields(['address_component', 'type', 'geometry']);
