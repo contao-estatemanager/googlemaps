@@ -91,6 +91,13 @@
        <trans-unit id="tl_expose_module.googleMapTypeControl.1">
          <source>Displays the available map view. Allows users to change how the map is being displayed.</source>
        </trans-unit>
+
+       <trans-unit id="tl_expose_module.iFrameFallbackIfAddressNotPublished.0">
+         <source>Use region fallback</source>
+       </trans-unit>
+       <trans-unit id="tl_expose_module.iFrameFallbackIfAddressNotPublished.1">
+         <source>Displays only an outline based on the postal code for objects without published address.</source>
+       </trans-unit>
     </body>
   </file>
 </xliff>

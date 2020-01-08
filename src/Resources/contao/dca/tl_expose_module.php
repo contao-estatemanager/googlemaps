@@ -11,7 +11,7 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     // Add field
     array_insert($GLOBALS['TL_DCA']['tl_expose_module']['palettes'], -1, array
     (
-        'googleMap'  => '{title_legend},name,headline,type;{google_maps_legend},googleInitialZoom,googleMinZoom,googleMaxZoom,googleType,googleGestureHandling,googleInteractive,googleControls,googleFullscreen,googleStreetview,googleMapTypeControl;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID'
+        'googleMap'  => '{title_legend},name,headline,type;{google_maps_legend},googleInitialZoom,googleMinZoom,googleMaxZoom,googleType,googleGestureHandling,googleInteractive,googleControls,googleFullscreen,googleStreetview,googleMapTypeControl,iFrameFallbackIfAddressNotPublished;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID'
     ));
 
     // Add fields
@@ -113,6 +113,14 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
         'googleMapTypeControl' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_expose_module']['googleMapTypeControl'],
+            'exclude'                 => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50 m12'),
+            'sql'                     => "char(1) NOT NULL default '1'"
+        ),
+        'iFrameFallbackIfAddressNotPublished' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_expose_module']['iFrameFallbackIfAddressNotPublished'],
             'exclude'                 => true,
             'inputType'               => 'checkbox',
             'eval'                    => array('tl_class'=>'w50 m12'),

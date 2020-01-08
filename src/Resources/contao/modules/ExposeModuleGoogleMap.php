@@ -54,6 +54,23 @@ class ExposeModuleGoogleMap extends ExposeModule
      */
     protected function compile()
     {
+        global $objPage;
+
+        if(!!$this->iFrameFallbackIfAddressNotPublished && !$this->realEstate->objektadresseFreigeben)
+        {
+            if($apiKey = \Config::get('googleMapsApiToken'))
+            {
+                $this->Template->src = "https://www.google.com/maps/embed/v1/search?q=" . $this->realEstate->plz . ($this->realEstate->land ? ',+' . $this->realEstate->land : '') . "&key=" . $apiKey;
+            }
+            else
+            {
+                $this->Template->src = "https://www.google.com/maps?hl=de&q=" . $this->realEstate->plz . ($this->realEstate->land ? ',+' . $this->realEstate->land : '') . "&ie=UTF8&z=11&output=embed";
+            }
+
+            $this->Template->useFallbackIframe = true;
+            return;
+        }
+
         $estateLat = $this->realEstate->breitengrad;
         $estateLng = $this->realEstate->laengengrad;
 
@@ -61,8 +78,6 @@ class ExposeModuleGoogleMap extends ExposeModule
         {
             $this->isEmpty = true;
         }
-
-        global $objPage;
 
         $markerImagePath = '';
         $markerSize = [0,0];
