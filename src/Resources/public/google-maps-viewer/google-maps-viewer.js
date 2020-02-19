@@ -268,6 +268,10 @@ var GoogleMapsViewer = (function () {
                     // parse geojson
                     var results = JSON.parse(sourceLoader.responseText);
 
+                    if (results.features === undefined) {
+                        return;
+                    }
+
                     // set data
                     viewer.geojson = results;
 

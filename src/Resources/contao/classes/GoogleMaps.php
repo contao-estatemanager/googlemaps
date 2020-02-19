@@ -80,7 +80,7 @@ class GoogleMaps
 
         if($arrClusterStyles === null)
         {
-            $arrClusterStyles = \StringUtil::deserialize( \Config::get('googleMapClusterStyles') );
+            $arrClusterStyles = \StringUtil::deserialize(\Config::get('googleMapClusterStyles'));
         }
 
         if($arrClusterStyles)

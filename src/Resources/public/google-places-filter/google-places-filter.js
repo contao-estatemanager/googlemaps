@@ -60,6 +60,14 @@ var GooglePlacesFilter = (function () {
                 return;
             }
 
+            if (filter.radiusField) {
+                for (var i=0; i<filter.radiusField.options.length; i++) {
+                    if (filter.radiusField.options[i].value == filter.settings.defaultRadius) {
+                        filter.settings.selectedRadiusIndex = i;
+                    }
+                }
+            }
+
             // init on api ready callback
             if(!filter.settings.initInstant){
                 document.addEventListener('googlemaps.onApiReady', createFilter);
@@ -179,9 +187,13 @@ var GooglePlacesFilter = (function () {
         var resetRadiusField = function (place) {
             if (place && filter.dom.value !== '' && (place.types.includes('street_address') || place.types.includes('route') || place.types.includes('premise'))) {
                 if (filter.radiusField.selectedIndex === 0) {
-                    filter.radiusField.selectedIndex = 5;
+                    filter.radiusField.selectedIndex = filter.settings.selectedRadiusIndex;
                 }
                 filter.radiusField.options[0].style.display = 'none';
+            } else if (place && filter.dom.value !== '' && filter.settings.forceRadius && (place.types.includes('locality') || place.types.includes('postal_code') || place.types.includes('sublocality'))) {
+                if (filter.radiusField.selectedIndex === 0) {
+                    filter.radiusField.selectedIndex = filter.settings.selectedRadiusIndex;
+                }
             } else {
                 filter.radiusField.options[0].style.display = '';
                 filter.radiusField.selectedIndex = 0;

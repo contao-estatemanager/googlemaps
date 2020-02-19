@@ -10,7 +10,7 @@
 
 if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     // Add palettes
-    $GLOBALS['TL_DCA']['tl_filter_item']['palettes']['locationGoogle'] = '{type_legend},type,label;{field_config_legend},mandatory,placeholder,googleAutocompleteType;{expert_legend:hide},class,accesskey,tabindex;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
+    $GLOBALS['TL_DCA']['tl_filter_item']['palettes']['locationGoogle'] = '{type_legend},type,label;{field_config_legend},mandatory,placeholder,googleAutocompleteType,googleDefaultRadius,googleForceRadius;{expert_legend:hide},class,accesskey,tabindex;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
     $GLOBALS['TL_DCA']['tl_filter_item']['palettes']['radiusGoogle']   = '{type_legend},type,label;{field_config_legend},mandatory,placeholder,googleRadiusOptions;{expert_legend:hide},class,accesskey,tabindex;{template_legend:hide},customTpl;{invisible_legend:hide},invisible';
 
     // Add fields
@@ -22,6 +22,24 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
         'options'                 => array('geocode', 'regions'),
         'eval'                    => array('tl_class'=>'w50 clr'),
         'sql'                     => "varchar(32) NOT NULL default 'geocode'",
+    );
+
+    $GLOBALS['TL_DCA']['tl_filter_item']['fields']['googleDefaultRadius'] = array
+    (
+        'label'                   => &$GLOBALS['TL_LANG']['tl_filter_item']['googleDefaultRadius'],
+        'exclude'                 => true,
+        'inputType'               => 'text',
+        'eval'                    => array('tl_class'=>'w50'),
+        'sql'                     => "varchar(8) NOT NULL default '5'",
+    );
+
+    $GLOBALS['TL_DCA']['tl_filter_item']['fields']['googleForceRadius'] = array
+    (
+        'label'                   => &$GLOBALS['TL_LANG']['tl_filter_item']['googleForceRadius'],
+        'exclude'                 => true,
+        'inputType'               => 'checkbox',
+        'eval'                    => array('tl_class'=>'w50'),
+        'sql'                     => "char(1) NOT NULL default ''",
     );
 
     $GLOBALS['TL_DCA']['tl_filter_item']['fields']['googleRadiusOptions'] = array

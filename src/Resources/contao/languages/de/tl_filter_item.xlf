@@ -10,6 +10,22 @@
         <source>The Google autocomplete type must be specified here.</source>
         <target>Hier muss der Typ der Google Autovervollständigung angegeben werden.</target>
       </trans-unit>
+      <trans-unit id="tl_filter_item.googleDefaultRadius.0">
+        <source>Default value of radius field</source>
+        <target>Standardwert des Umkreisfeldes</target>
+      </trans-unit>
+      <trans-unit id="tl_filter_item.googleDefaultRadius.1">
+        <source>The default value of the radius field must be set here.</source>
+        <target>Hier muss der Standardwert des Umkreisfeldes gesetzt werden.</target>
+      </trans-unit>
+      <trans-unit id="tl_filter_item.googleForceRadius.0">
+        <source>Force radius search</source>
+        <target>Umkreissuche erzwingen</target>
+      </trans-unit>
+      <trans-unit id="tl_filter_item.googleForceRadius.1">
+        <source>Here you can define whether the radius search should be forced on searching for a city or postal code.</source>
+        <target>Hier können Sie definieren, ob die Umkreissuche erzwungen werden soll, wenn nach einer Stadt oder Postleitzahl gesucht wird.</target>
+      </trans-unit>
       <trans-unit id="tl_filter_item.googleRadiusOptions.0">
         <source>Available options: Radius</source>
         <target>Verfügbare Optionen: Radius</target>
