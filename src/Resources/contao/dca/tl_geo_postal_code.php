@@ -33,15 +33,15 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
             ),
             'code' => array
             (
-                'sql'                     => "varchar(8) unsigned NOT NULL default ''"
+                'sql'                     => "varchar(8) NOT NULL default ''"
             ),
             'latitude' => array
             (
-                'sql'                       => "varchar(32) NOT NULL default ''",
+                'sql'                       => "varchar(32) NOT NULL default ''"
             ),
             'longitude' => array
             (
-                'sql'                       => "varchar(32) NOT NULL default ''",
+                'sql'                       => "varchar(32) NOT NULL default ''"
             )
         )
     );
