@@ -2,6 +2,22 @@
 <xliff version="1.1">
   <file datatype="php" original="src/Resources/contao/languages/en/tl_filter_item.php" source-language="en" target-language="de">
     <body>
+      <trans-unit id="RFI.locationGoogle.0">
+        <source>Address field (Google)</source>
+        <target>Adressfeld (Google)</target>
+      </trans-unit>
+      <trans-unit id="RFI.locationGoogle.1">
+        <source>An address field for filtering based on address entries over the Google api.</source>
+        <target>Ein Adressfeld zum Filtern anhand von Adresseingaben über die Google API.</target>
+      </trans-unit>
+      <trans-unit id="RFI.radiusGoogle.0">
+        <source>Radius (Google)</source>
+        <target>Umkreis (Google)</target>
+      </trans-unit>
+      <trans-unit id="RFI.radiusGoogle.1">
+        <source>A radius field for filtering within a certain radius.</source>
+        <target>Ein Umkreisfeld zur Filterung innerhalb eines bestimmten Umkreises.</target>
+      </trans-unit>
       <trans-unit id="tl_filter_item.googleAutocompleteType.0">
         <source>Autocomplete type</source>
         <target>Typ der Autovervollständigung</target>
