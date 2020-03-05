@@ -102,6 +102,10 @@ var GooglePlacesFilter = (function () {
                     }
                 }
                 filter.countryField.addEventListener('change', onCountryChanged);
+            } else {
+                if (filter.settings.defaultCountry != '') {
+                    filter.countryOptions.push(filter.settings.defaultCountry);
+                }
             }
 
             if (filter.locationField) {
@@ -125,6 +129,8 @@ var GooglePlacesFilter = (function () {
         };
 
         var onCountryChanged = function () {
+            if (!filter.countryField) return;
+
             var country = filter.countryField.value;
 
             if (country === 'all' || country === '') {

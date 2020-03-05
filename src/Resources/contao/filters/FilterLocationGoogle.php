@@ -12,6 +12,7 @@ namespace ContaoEstateManager\GoogleMaps;
 
 
 use ContaoEstateManager\FilterModel;
+use ContaoEstateManager\FilterSession;
 use ContaoEstateManager\FilterWidget;
 
 /**
@@ -108,7 +109,9 @@ class FilterLocationGoogle extends FilterWidget
 
         $types = $this->googleAutocompleteType === 'regions' ? '('.$this->googleAutocompleteType.')' : $this->googleAutocompleteType;
 
-        $this->config = '{"initInstant":true,"types":"'.$types.'","defaultRadius":'.$this->googleDefaultRadius.',"forceRadius":'.($this->googleForceRadius ? 1 : 0).'}';
+        $objFilterSession = FilterSession::getInstance();
+
+        $this->config = '{"initInstant":true,"types":"'.$types.'","defaultRadius":'.$this->googleDefaultRadius.',"forceRadius":'.($this->googleForceRadius ? 1 : 0).',"defaultCountry":"'.$objFilterSession->getRootLanguage().'"}';
 
         return parent::parse($arrAttributes);
     }
