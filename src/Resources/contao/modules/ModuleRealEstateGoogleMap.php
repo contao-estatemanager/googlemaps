@@ -96,7 +96,8 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
                     'filter'       => true,
                     'filterMode'   => $this->filterMode,
                     'groups'       => $this->realEstateGroups,
-                    'pageId'       => $objPage->id
+                    'pageId'       => $objPage->id,
+                    'moduleId'     => $this->id
                 ]
             ],
             'popup' => [

@@ -10,7 +10,7 @@
 if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     array_insert($GLOBALS['TL_DCA']['tl_module']['palettes'], 0, array
     (
-        'realEstateGoogleMap'      => '{title_legend},name,headline,type;{config_legend},realEstateGroups,filterMode;{google_maps_legend},googleInitialLat,googleInitialLng,googleInitialZoom,googleMinZoom,googleMaxZoom,googleType,googleGestureHandling,googleUseBounce,googleUseCluster,googleUseSpiderfier,googleUseBounds,googleInteractive,googleControls,googleFullscreen,googleStreetview,googleMapTypeControl;{redirect_legend},jumpTo;{template_legend:hide},customTpl,googleMapPopupTemplate;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID',
+        'realEstateGoogleMap'      => '{title_legend},name,headline,type;{config_legend},realEstateGroups,filterMode;{provider_legend},filterByProvider;{google_maps_legend},googleInitialLat,googleInitialLng,googleInitialZoom,googleMinZoom,googleMaxZoom,googleType,googleGestureHandling,googleUseBounce,googleUseCluster,googleUseSpiderfier,googleUseBounds,googleInteractive,googleControls,googleFullscreen,googleStreetview,googleMapTypeControl;{redirect_legend},jumpTo;{template_legend:hide},customTpl,googleMapPopupTemplate;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID',
     ));
 
     // Add estate manager fields
