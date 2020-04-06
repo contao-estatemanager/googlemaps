@@ -174,7 +174,7 @@ var GoogleMapsViewer = (function () {
         };
 
         var addClusterSupport = function(){
-            viewer.cluster = new MarkerClusterer(viewer.map, viewer.markers, viewer.settings.cluster.options);
+            viewer.cluster = new Markerclusterer120(viewer.map, viewer.markers, viewer.settings.cluster.options);
 
             // set styles
             if(viewer.settings.cluster.styles){
