@@ -10,9 +10,10 @@
 
 namespace ContaoEstateManager\GoogleMaps;
 
+use Contao\Controller;
 use ContaoEstateManager\Translator;
 
-class Filter extends \Controller
+class Filter extends Controller
 {
 
     /**

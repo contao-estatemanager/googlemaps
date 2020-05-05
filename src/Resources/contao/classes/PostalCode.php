@@ -10,7 +10,9 @@
 
 namespace ContaoEstateManager\GoogleMaps;
 
-class PostalCode extends \Controller
+use Contao\Controller;
+
+class PostalCode extends Controller
 {
 
     /**

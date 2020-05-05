@@ -10,7 +10,7 @@
 
 namespace ContaoEstateManager\GoogleMaps;
 
-
+use Contao\Config;
 use ContaoEstateManager\FilterModel;
 use ContaoEstateManager\FilterWidget;
 
@@ -105,7 +105,7 @@ class FilterRadiusGoogle extends FilterWidget
 
         $this->strClass = $strClass;
 
-        $strOptions = $this->googleRadiusOptions ? $this->googleRadiusOptions : \Config::get('googleRadiusOptions');
+        $strOptions = $this->googleRadiusOptions ? $this->googleRadiusOptions : Config::get('googleRadiusOptions');
         $options = array_map('trim', explode(',', $strOptions));
 
         $arrOptions = array();

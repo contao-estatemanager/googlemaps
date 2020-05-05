@@ -10,6 +10,10 @@
 
 namespace ContaoEstateManager\GoogleMaps;
 
+use Contao\Config;
+use Contao\File;
+use Contao\FilesModel;
+use Contao\StringUtil;
 use ContaoEstateManager\Translator;
 
 class GoogleMaps
@@ -21,12 +25,14 @@ class GoogleMaps
      * @param $disablePathCount
      *
      * @return array|boolean
+     *
+     * @throws \Exception
      */
     public static function getMarkerImage($objFileModel=null, $disablePathCount=true)
     {
-        if($objFileModel === null && $markerImage = \Config::get('googleMapsDefaultMarkerSRC'))
+        if($objFileModel === null && $markerImage = Config::get('googleMapsDefaultMarkerSRC'))
         {
-            $objFileModel = \FilesModel::findByUuid($markerImage);
+            $objFileModel = FilesModel::findByUuid($markerImage);
         }
 
         if ($objFileModel !== null && is_file(TL_ROOT . '/' . $objFileModel->path))
@@ -34,7 +40,7 @@ class GoogleMaps
             $markerSize = array();
             $markerImagePath = $objFileModel->path . ($disablePathCount ? '?disablePathCount=1' : '');
 
-            $objFile = new \File($objFileModel->path);
+            $objFile = new File($objFileModel->path);
 
             if($objFile !== null)
             {
@@ -56,12 +62,12 @@ class GoogleMaps
      */
     public static function getMapStyles()
     {
-        if(!\Config::get('googleMapUseMapStyles'))
+        if(!Config::get('googleMapUseMapStyles'))
         {
             return null;
         }
 
-        return json_decode( \Config::get('googleMapStylesScript') ) ?: null;
+        return json_decode( Config::get('googleMapStylesScript') ) ?: null;
     }
 
     /**
@@ -70,17 +76,19 @@ class GoogleMaps
      * @param $arrClusterStyles
      *
      * @return array|boolean
+     *
+     * @throws \Exception
      */
     public static function getClusterStyles($arrClusterStyles=null)
     {
-        if(!\Config::get('googleMapUseClusterStyles'))
+        if(!Config::get('googleMapUseClusterStyles'))
         {
            return false;
         }
 
         if($arrClusterStyles === null)
         {
-            $arrClusterStyles = \StringUtil::deserialize(\Config::get('googleMapClusterStyles'));
+            $arrClusterStyles = StringUtil::deserialize(Config::get('googleMapClusterStyles'));
         }
 
         if($arrClusterStyles)
@@ -91,13 +99,13 @@ class GoogleMaps
             foreach ($arrClusterStyles as $styles)
             {
                 if($clusterImage = $styles['image']){
-                    $objModel = \FilesModel::findByUuid($clusterImage);
+                    $objModel = FilesModel::findByUuid($clusterImage);
 
                     if ($objModel !== null && is_file(TL_ROOT . '/' . $objModel->path))
                     {
                         $url = $objModel->path . '?disablePathCount=1';
 
-                        $objFile = new \File($objModel->path);
+                        $objFile = new File($objModel->path);
 
                         if($objFile !== null)
                         {
