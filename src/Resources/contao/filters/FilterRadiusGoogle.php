@@ -18,10 +18,10 @@ use ContaoEstateManager\FilterWidget;
  * Class FilterRadiusGoogle
  *
  * @author Fabian Ekert <fabian@oveleon.de>
+ * @author Daniele Sciannimanica <https://github.com/doishub>
  */
 class FilterRadiusGoogle extends FilterWidget
 {
-
     /**
      * Submit user input
      *
@@ -93,7 +93,7 @@ class FilterRadiusGoogle extends FilterWidget
      *
      * @return string The template markup
      */
-    public function parse($arrAttributes=null)
+    public function parse($arrAttributes=null): string
     {
         $strClass = 'select';
 

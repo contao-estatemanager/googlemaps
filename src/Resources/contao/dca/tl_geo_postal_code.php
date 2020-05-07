@@ -10,7 +10,6 @@
 if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     $GLOBALS['TL_DCA']['tl_geo_postal_code'] = array
     (
-
         // Config
         'config' => array
         (
@@ -23,7 +22,6 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
                 )
             )
         ),
-
         // Fields
         'fields' => array
         (

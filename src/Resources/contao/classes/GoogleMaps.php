@@ -24,11 +24,11 @@ class GoogleMaps
      * @param $objFileModel
      * @param $disablePathCount
      *
-     * @return array|boolean
+     * @return array|null
      *
      * @throws \Exception
      */
-    public static function getMarkerImage($objFileModel=null, $disablePathCount=true)
+    public static function getMarkerImage($objFileModel=null, $disablePathCount=true): ?array
     {
         if($objFileModel === null && $markerImage = Config::get('googleMapsDefaultMarkerSRC'))
         {
@@ -53,14 +53,14 @@ class GoogleMaps
             }
         }
 
-        return false;
+        return null;
     }
     /**
      * Return a style package for map
      *
      * @return array|null
      */
-    public static function getMapStyles()
+    public static function getMapStyles(): ?array
     {
         if(!Config::get('googleMapUseMapStyles'))
         {
@@ -75,15 +75,15 @@ class GoogleMaps
      *
      * @param $arrClusterStyles
      *
-     * @return array|boolean
+     * @return array|null
      *
      * @throws \Exception
      */
-    public static function getClusterStyles($arrClusterStyles=null)
+    public static function getClusterStyles($arrClusterStyles=null): ?array
     {
         if(!Config::get('googleMapUseClusterStyles'))
         {
-           return false;
+           return null;
         }
 
         if($arrClusterStyles === null)
@@ -135,6 +135,6 @@ class GoogleMaps
             return [$clusterSteps, $clusterStyles];
         }
 
-        return false;
+        return null;
     }
 }

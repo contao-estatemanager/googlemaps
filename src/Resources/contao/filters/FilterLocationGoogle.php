@@ -19,6 +19,7 @@ use ContaoEstateManager\FilterWidget;
  * Class FilterLocationGoogle
  *
  * @author Fabian Ekert <fabian@oveleon.de>
+ * @author Daniele Sciannimanica <https://github.com/doishub>
  */
 class FilterLocationGoogle extends FilterWidget
 {
@@ -97,7 +98,7 @@ class FilterLocationGoogle extends FilterWidget
      *
      * @return string The template markup
      */
-    public function parse($arrAttributes=null)
+    public function parse($arrAttributes=null): string
     {
         $this->value = $_SESSION['FILTER_DATA']['location-google'];
         $this->valueCountry = $_SESSION['FILTER_DATA']['country-short'];

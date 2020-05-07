@@ -21,7 +21,7 @@ class PostalCode extends Controller
      * @param $objRealEstate
      * @param $context
      */
-    public function determinePostalCodeGeoData(&$objRealEstate, $context)
+    public function determinePostalCodeGeoData(&$objRealEstate, $context): void
     {
         if (empty($objRealEstate->plz))
         {

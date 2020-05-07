@@ -9,10 +9,7 @@
  */
 if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     // Add field
-    array_insert($GLOBALS['TL_DCA']['tl_expose_module']['palettes'], -1, array
-    (
-        'googleMap'  => '{title_legend},name,headline,type;{google_maps_legend},googleInitialZoom,googleMinZoom,googleMaxZoom,googleType,googleGestureHandling,googleInteractive,googleControls,googleFullscreen,googleStreetview,googleMapTypeControl,iFrameFallbackIfAddressNotPublished;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID'
-    ));
+    $GLOBALS['TL_DCA']['tl_expose_module']['palettes']['googleMap'] = '{title_legend},name,headline,type;{google_maps_legend},googleInitialZoom,googleMinZoom,googleMaxZoom,googleType,googleGestureHandling,googleInteractive,googleControls,googleFullscreen,googleStreetview,googleMapTypeControl,iFrameFallbackIfAddressNotPublished;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
 
     // Add fields
     array_insert($GLOBALS['TL_DCA']['tl_expose_module']['fields'], -1, array(
@@ -34,7 +31,7 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
             'inputType'               => 'select',
             'options'                 => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20),
             'eval'                    => array('tl_class'=>'w50'),
-            'sql'                     => "int(2) unsigned NOT NULL default '0'",
+            'sql'                     => "int(2) unsigned NOT NULL default '10'",
         ),
         'googleMaxZoom' => array
         (
@@ -44,7 +41,7 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
             'inputType'               => 'select',
             'options'                 => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20),
             'eval'                    => array('tl_class'=>'w50'),
-            'sql'                     => "int(2) unsigned NOT NULL default '24'",
+            'sql'                     => "int(2) unsigned NOT NULL default '14'",
         ),
         'googleType' => array
         (
@@ -127,22 +124,4 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
             'sql'                     => "char(1) NOT NULL default '1'"
         )
     ));
-}
-
-/**
- * Provide miscellaneous methods that are used by the data configuration array.
- *
- * @author Daniele Sciannimanica <daniele@oveleon.de>
- */
-class tl_expose_module_estate_manager_googlemaps extends \Backend
-{
-
-    /**
-     * Import the back end user object
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->import('BackendUser', 'User');
-    }
 }

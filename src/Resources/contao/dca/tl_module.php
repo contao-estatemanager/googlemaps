@@ -8,10 +8,7 @@
  * @license   https://www.contao-estatemanager.com/lizenzbedingungen.html
  */
 if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
-    array_insert($GLOBALS['TL_DCA']['tl_module']['palettes'], 0, array
-    (
-        'realEstateGoogleMap'      => '{title_legend},name,headline,type;{config_legend},realEstateGroups,filterMode;{provider_legend},filterByProvider;{google_maps_legend},googleInitialLat,googleInitialLng,googleInitialZoom,googleMinZoom,googleMaxZoom,googleType,googleGestureHandling,googleUseBounce,googleUseCluster,googleUseSpiderfier,googleUseBounds,googleInteractive,googleControls,googleFullscreen,googleStreetview,googleMapTypeControl;{redirect_legend},jumpTo;{template_legend:hide},customTpl,googleMapPopupTemplate;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID',
-    ));
+    $GLOBALS['TL_DCA']['tl_module']['palettes']['realEstateGoogleMap'] = '{title_legend},name,headline,type;{config_legend},realEstateGroups,filterMode;{provider_legend},filterByProvider;{google_maps_legend},googleInitialLat,googleInitialLng,googleInitialZoom,googleMinZoom,googleMaxZoom,googleType,googleGestureHandling,googleUseBounce,googleUseCluster,googleUseSpiderfier,googleUseBounds,googleInteractive,googleControls,googleFullscreen,googleStreetview,googleMapTypeControl;{redirect_legend},jumpTo;{template_legend:hide},customTpl,googleMapPopupTemplate;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
 
     // Add estate manager fields
     array_insert($GLOBALS['TL_DCA']['tl_module']['fields'], 1, array
@@ -164,7 +161,9 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
             'default'                 => 'real_estate_default',
             'exclude'                 => true,
             'inputType'               => 'select',
-            'options_callback'        => array('tl_module_estatemanager_google_map', 'getGoogleMapPopupTemplates'),
+            'options_callback'        => function (){
+                return Contao\Controller::getTemplateGroup('maps_google_popup_');
+            },
             'eval'                    => array('tl_class'=>'w50'),
             'sql'                     => "varchar(64) NOT NULL default ''"
         ),
@@ -198,7 +197,7 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     $GLOBALS['TL_DCA']['tl_module']['fields']['defaultSorting']['options'][] = 'location';
 
     // Add palettes
-    $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][]            = 'googleFilterAddSorting';
+    $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'googleFilterAddSorting';
 
     // Add subpalettes
     $GLOBALS['TL_DCA']['tl_module']['subpalettes']['googleFilterAddSorting'] = 'googleFilterLat,googleFilterLng';
@@ -208,33 +207,4 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
         ->addField(array('googleFilterAddSorting'), 'sorting_legend', Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
         ->applyToSubpalette('addSorting', 'tl_module')
     ;
-}
-
-/**
- * Provide miscellaneous methods that are used by the data configuration array.
- *
- * @author Daniele Sciannimanica <daniele@oveleon.de>
- * @author Fabian Ekert <fabian@oveleon.de>
- */
-class tl_module_estatemanager_google_map extends Backend
-{
-
-    /**
-     * Import the back end user object
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->import('BackendUser', 'User');
-    }
-
-    /**
-     * Return all real estate list templates as array
-     *
-     * @return array
-     */
-    public function getGoogleMapPopupTemplates()
-    {
-        return $this->getTemplateGroup('maps_google_popup_');
-    }
 }
