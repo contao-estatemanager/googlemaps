@@ -8,10 +8,11 @@
  * @license   https://www.contao-estatemanager.com/lizenzbedingungen.html
  */
 if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
-    // Add real estate fields
+    // Add fields
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['plzBreitengrad'] = array
     (
         'label'                     => &$GLOBALS['TL_LANG']['tl_real_estate']['plzBreitengrad'],
+        'exclude'                   => true,
         'inputType'                 => 'text',
         'eval'                      => array('maxlength'=>32, 'tl_class'=>'w50'),
         'sql'                       => "varchar(32) NOT NULL default ''",
@@ -20,6 +21,7 @@ if(ContaoEstateManager\GoogleMaps\AddonManager::valid()) {
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['plzLaengengrad'] = array
     (
         'label'                     => &$GLOBALS['TL_LANG']['tl_real_estate']['plzLaengengrad'],
+        'exclude'                   => true,
         'inputType'                 => 'text',
         'eval'                      => array('maxlength'=>32, 'tl_class'=>'w50'),
         'sql'                       => "varchar(32) NOT NULL default ''",

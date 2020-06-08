@@ -10,9 +10,10 @@
 
 namespace ContaoEstateManager\GoogleMaps;
 
+use Contao\Controller;
 use ContaoEstateManager\Translator;
 
-class Filter extends \Controller
+class Filter extends Controller
 {
 
     /**
@@ -28,9 +29,11 @@ class Filter extends \Controller
      * @param $arrValues
      * @param $arrOptions
      * @param $mode
+     * @param $addFragments
+     * @param $objModule
      * @param $context
      */
-    public function setLocationParameter(&$arrColumns, &$arrValues, &$arrOptions, $mode, $addFragments, $objModule, $context)
+    public function setLocationParameter(&$arrColumns, &$arrValues, &$arrOptions, $mode, $addFragments, $objModule, $context): void
     {
         if (!$addFragments)
         {
@@ -83,7 +86,7 @@ class Filter extends \Controller
      * @param $arrOptions
      * @param $objModule
      */
-    public function addRealEstateSorting(&$arrOptions, $objModule)
+    public function addRealEstateSorting(&$arrOptions, $objModule): void
     {
         if ($objModule->googleFilterAddSorting)
         {
@@ -98,7 +101,7 @@ class Filter extends \Controller
      * @param $arrLabels
      * @param $context
      */
-    public function resetLocationFilter($arrSubmitted, $arrLabels, $context)
+    public function resetLocationFilter($arrSubmitted, $arrLabels, $context): void 
     {
         if ($_SESSION['FILTER_DATA']['location-google'] === '')
         {

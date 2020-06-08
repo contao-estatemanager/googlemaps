@@ -10,8 +10,11 @@
 
 namespace ContaoEstateManager\GoogleMaps;
 
+use Contao\BackendTemplate;
+use Contao\Config;
 use ContaoEstateManager\ExposeModule;
 use ContaoEstateManager\Translator;
+use Patchwork\Utf8;
 
 /**
  * Expose module "google map".
@@ -35,7 +38,7 @@ class ExposeModuleGoogleMap extends ExposeModule
     {
         if (TL_MODE == 'BE')
         {
-            $objTemplate = new \BackendTemplate('be_wildcard');
+            $objTemplate = new BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### ' . Utf8::strtoupper($GLOBALS['TL_LANG']['FMD']['virtual_tour'][0]) . ' ###';
             $objTemplate->title = $this->headline;
             $objTemplate->id = $this->id;
@@ -58,7 +61,7 @@ class ExposeModuleGoogleMap extends ExposeModule
 
         if(!!$this->iFrameFallbackIfAddressNotPublished && !$this->realEstate->objektadresseFreigeben)
         {
-            if($apiKey = \Config::get('googleMapsApiToken'))
+            if($apiKey = Config::get('googleMapsApiToken'))
             {
                 $this->Template->src = "https://www.google.com/maps/embed/v1/search?q=" . $this->realEstate->plz . ($this->realEstate->land ? ',+' . $this->realEstate->land : '') . "&key=" . $apiKey;
             }

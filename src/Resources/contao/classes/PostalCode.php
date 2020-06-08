@@ -10,7 +10,9 @@
 
 namespace ContaoEstateManager\GoogleMaps;
 
-class PostalCode extends \Controller
+use Contao\Controller;
+
+class PostalCode extends Controller
 {
 
     /**
@@ -19,7 +21,7 @@ class PostalCode extends \Controller
      * @param $objRealEstate
      * @param $context
      */
-    public function determinePostalCodeGeoData(&$objRealEstate, $context)
+    public function determinePostalCodeGeoData(&$objRealEstate, $context): void
     {
         if (empty($objRealEstate->plz))
         {

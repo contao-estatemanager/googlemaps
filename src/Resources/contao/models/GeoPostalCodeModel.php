@@ -10,6 +10,7 @@
 
 namespace ContaoEstateManager\GoogleMaps;
 
+use Contao\Model;
 use Contao\Model\Collection;
 
 /**
@@ -41,7 +42,7 @@ use Contao\Model\Collection;
  *
  * @author Fabian Ekert <https://github.com/eki89>
  */
-class GeoPostalCodeModel extends \Model
+class GeoPostalCodeModel extends Model
 {
 	/**
 	 * Table name
