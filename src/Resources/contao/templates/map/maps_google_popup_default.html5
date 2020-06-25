@@ -1,6 +1,6 @@
 <div class="maps_google_popup_default block">
-    <?php $link = $this->realEstate->generateExposeUrl() ?>
     <?php if($this->jumpTo): ?>
+      <?php $link = $this->realEstate->generateExposeUrl() ?>
       <a href="<?= $link ?>" title="<?= $this->realEstate->title ?>">
     <?php endif; ?>
 
