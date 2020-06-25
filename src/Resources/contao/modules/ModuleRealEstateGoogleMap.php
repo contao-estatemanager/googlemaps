@@ -105,15 +105,8 @@ class ModuleRealEstateGoogleMap extends ModuleRealEstate
                 'source' => [
                     'path'    => '/api/estatemanager/v1/estates/%id%',
                     'param'   => [
-                        'jumpTo'   => $this->jumpTo,
                         'template' => $this->googleMapPopupTemplate ?: '',
-                        'fields'   => [
-                            'objekttitel',
-                            'mainImage',
-                            'mainDetails',
-                            'mainPrice',
-                            'exposeUrl'
-                        ]
+                        'moduleId' => $this->id
                     ]
                 ]
             ],
