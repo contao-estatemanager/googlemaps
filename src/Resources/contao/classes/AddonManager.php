@@ -17,10 +17,16 @@ use ContaoEstateManager\EstateManager;
 class AddonManager
 {
     /**
-     * Addon name
+     * Bundle name
      * @var string
      */
-    public static $name = 'GoogleMaps';
+    public static $bundle = 'EstateManagerGoogleMaps';
+
+    /**
+     * Package
+     * @var string
+     */
+    public static $package = 'contao-estatemanager/googlemaps';
 
     /**
      * Addon config key
