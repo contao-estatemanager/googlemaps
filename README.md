@@ -1,5 +1,9 @@
-# Google Maps Extension for Contao EstateManager
-The Google Maps extension for Contao EstateManager allows you to display properties on a Google map.
+# Google Maps Extension for Contao EstateManager (Deprecated)
+Deprecated container bundle that was replaced by contao-estatemanager/google-maps and contao-estatemanager/google-autocomplete.
+
+Use the following bundles instead:
+contao-estatemanager/google-maps: https://github.com/contao-estatemanager/google-maps
+contao-estatemanager/google-autocomplete: https://github.com/contao-estatemanager/google-autocomplete
 
 # License
 Copyright © 2020 Contao EstateManager

@@ -14,10 +14,10 @@
   ],
   "require":{
     "php":">=7.1",
-    "ext-json": "*",
     "contao/core-bundle":"^4.4",
     "contao-estatemanager/core": "^1.0.3",
-    "ext-curl": "*"
+    "contao-estatemanager/google-maps": "^1.0",
+    "contao-estatemanager/google-autocomplete": "^1.0"
   },
   "require-dev": {
     "contao/manager-plugin": "^2.0"
@@ -25,25 +25,5 @@
   "conflict": {
     "contao/core": "*",
     "contao/manager-plugin": "<2.0 || >=3.0"
-  },
-  "autoload":{
-    "psr-4": {
-      "ContaoEstateManager\\GoogleMaps\\": "src/"
-    },
-    "classmap": [
-      "src/Resources/contao/"
-    ],
-    "exclude-from-classmap": [
-      "src/Resources/contao/config/",
-      "src/Resources/contao/dca/",
-      "src/Resources/contao/languages/",
-      "src/Resources/contao/templates/"
-    ]
-  },
-  "extra":{
-    "branch-alias": {
-      "dev-master": "1.0.x-dev"
-    },
-    "contao-manager-plugin": "ContaoEstateManager\\GoogleMaps\\ContaoManager\\Plugin"
   }
 }
