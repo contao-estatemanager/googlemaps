@@ -25,5 +25,10 @@
   "conflict": {
     "contao/core": "*",
     "contao/manager-plugin": "<2.0 || >=3.0"
+  },
+  "extra":{
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
   }
 }
