@@ -15,7 +15,7 @@
   "require":{
     "php":">=7.1",
     "contao/core-bundle":"^4.4",
-    "contao-estatemanager/core": "^1.0.3",
+    "contao-estatemanager/core": "^1.0",
     "contao-estatemanager/google-maps": "^1.0",
     "contao-estatemanager/google-autocomplete": "^1.0"
   },
